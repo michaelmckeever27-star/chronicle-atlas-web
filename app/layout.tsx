@@ -58,7 +58,7 @@ const organisationSchema = {
   "@type": "Organization",
   name: "Chronicle Atlas Ltd",
   url: siteUrl.toString(),
-  email: "support@chronicleatlas.com",
+  email: "hello@chronicleatlas.app",
   description,
 };
 

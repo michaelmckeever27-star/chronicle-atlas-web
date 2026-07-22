@@ -145,7 +145,7 @@ export default function TermsOfUsePage() {
         </p>
         <p>
           Questions can be sent to{" "}
-          <a href="mailto:support@chronicleatlas.com">support@chronicleatlas.com</a>.
+          <a href="mailto:legal@chronicleatlas.app">legal@chronicleatlas.app</a>.
         </p>
       </section>
     </LegalPage>

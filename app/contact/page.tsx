@@ -27,8 +27,8 @@ export default function ContactPage() {
               a clear subject line and any useful context; we will route your
               message to the right person.
             </p>
-            <ButtonLink href="mailto:support@chronicleatlas.com" variant="secondary">
-              support@chronicleatlas.com
+            <ButtonLink href="mailto:contact@chronicleatlas.app" variant="secondary">
+              contact@chronicleatlas.app
             </ButtonLink>
           </div>
           <div className="contact-options">
@@ -45,7 +45,7 @@ export default function ContactPage() {
               <div>
                 <h3>Historical corrections</h3>
                 <p>Flag a factual question or share relevant scholarship.</p>
-                <a href="mailto:support@chronicleatlas.com?subject=Historical%20correction">Email the editorial team →</a>
+                <a href="mailto:contact@chronicleatlas.app?subject=Historical%20correction">Email the editorial team →</a>
               </div>
             </article>
             <article>
@@ -53,7 +53,7 @@ export default function ContactPage() {
               <div>
                 <h3>Press & partnerships</h3>
                 <p>Media requests, educational collaborations and licensing.</p>
-                <a href="mailto:support@chronicleatlas.com?subject=Press%20or%20partnership%20enquiry">Send an enquiry →</a>
+                <a href="mailto:contact@chronicleatlas.app?subject=Press%20or%20partnership%20enquiry">Send an enquiry →</a>
               </div>
             </article>
           </div>

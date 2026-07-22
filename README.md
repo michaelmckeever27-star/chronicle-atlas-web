@@ -29,7 +29,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Before launch, set `NEXT_PUBLIC_SITE_URL` in `.env.local` to the canonical site
 origin, with no trailing slash. The production fallback is
-`https://chronicleatlas.com`.
+`https://chronicleatlas.app`.
 
 ## Production checks
 
@@ -48,7 +48,7 @@ npm run start
 5. Leave the build command as `next build` and the output directory as the
    Next.js default. No root-directory change is needed.
 6. Add an environment variable named `NEXT_PUBLIC_SITE_URL` with the final
-   production origin, for example `https://chronicleatlas.com`.
+   production origin, for example `https://chronicleatlas.app`.
 7. Select **Deploy**.
 8. In **Project Settings → Domains**, add the production domain. If its value
    differs from step 6, update `NEXT_PUBLIC_SITE_URL` and redeploy so canonical

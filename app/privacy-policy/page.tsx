@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           Questions about privacy can be sent to{" "}
-          <a href="mailto:support@chronicleatlas.com">support@chronicleatlas.com</a>.
+          <a href="mailto:privacy@chronicleatlas.app">privacy@chronicleatlas.app</a>.
         </p>
       </section>
 
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           To make a request, email{" "}
-          <a href="mailto:support@chronicleatlas.com">support@chronicleatlas.com</a>.
+          <a href="mailto:privacy@chronicleatlas.app">privacy@chronicleatlas.app</a>.
           We may need to verify your identity. You can also read our{" "}
           <a href="/account-deletion">account deletion instructions</a>. In the
           UK, you may complain to the Information Commissioner’s Office.

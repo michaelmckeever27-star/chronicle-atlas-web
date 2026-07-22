@@ -50,7 +50,7 @@ export default function SupportPage() {
         title="How can we help?"
         intro="Whether you have a practical problem or a historical question, your message will reach the Chronicle Atlas team."
       >
-        <ButtonLink href="mailto:support@chronicleatlas.com" variant="light">
+        <ButtonLink href="mailto:support@chronicleatlas.app" variant="light">
           Email support
         </ButtonLink>
       </PageHero>
@@ -75,7 +75,7 @@ export default function SupportPage() {
                 <h3>{topic.title}</h3>
                 <p>{topic.text}</p>
                 <a
-                  href={`mailto:support@chronicleatlas.com?subject=${encodeURIComponent(`England 871 — ${topic.subject}`)}`}
+                  href={`mailto:support@chronicleatlas.app?subject=${encodeURIComponent(`England 871 — ${topic.subject}`)}`}
                 >
                   Contact us <span aria-hidden="true">→</span>
                 </a>

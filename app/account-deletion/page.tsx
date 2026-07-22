@@ -27,7 +27,7 @@ export default function AccountDeletionPage() {
                 <div>
                   <h2>Email us</h2>
                   <p>
-                    Write to <a href="mailto:support@chronicleatlas.com">support@chronicleatlas.com</a> from the address connected to your account.
+                    Write to <a href="mailto:privacy@chronicleatlas.app">privacy@chronicleatlas.app</a> from the address connected to your account.
                   </p>
                 </div>
               </li>
@@ -50,7 +50,7 @@ export default function AccountDeletionPage() {
               </li>
             </ol>
             <ButtonLink
-              href="mailto:support@chronicleatlas.com?subject=Account%20deletion%20request%20%E2%80%94%20England%20871"
+              href="mailto:privacy@chronicleatlas.app?subject=Account%20deletion%20request%20%E2%80%94%20England%20871"
               variant="secondary"
             >
               Start deletion request
