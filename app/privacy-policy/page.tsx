@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "Draft privacy policy for Chronicle Atlas Ltd and England 871, our immersive history app covering medieval England from 871 to 1399.",
+    "Privacy policy for Chronicle Atlas Ltd and England 871, our immersive history app covering medieval England from 871 to 1399.",
   path: "/privacy",
 });
 
@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       intro="How Chronicle Atlas Ltd expects to collect, use and protect personal information in England 871 and related services."
-      draft
+      lastUpdated="10 August 2026"
     >
       <section>
         <h2>1. Who we are</h2>
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
           released app. If Chronicle Atlas enables an analytics or crash-reporting
           service, this policy must be updated before launch to name the provider,
           explain what it collects, identify the purpose and describe any
-          available controls. This draft does not assume that analytics are in
+          available controls. This policy does not assume that analytics are in
           use.
         </p>
         <p>

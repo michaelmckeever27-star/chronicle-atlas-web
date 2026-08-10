@@ -7,6 +7,7 @@ type LegalPageProps = {
   intro: string;
   children: ReactNode;
   draft?: boolean;
+  lastUpdated?: string;
 };
 
 export function LegalPage({
@@ -15,6 +16,7 @@ export function LegalPage({
   intro,
   children,
   draft = false,
+  lastUpdated = "22 July 2026",
 }: LegalPageProps) {
   return (
     <>
@@ -23,7 +25,7 @@ export function LegalPage({
         <div className="site-container legal-grid">
           <aside className="legal-aside">
             <p className="eyebrow">Document status</p>
-            <p>Last updated 22 July 2026</p>
+            <p>Last updated {lastUpdated}</p>
             {draft && <span className="status-label">Draft for review</span>}
           </aside>
           <article className="legal-content">

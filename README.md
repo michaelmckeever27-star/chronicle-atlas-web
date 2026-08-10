@@ -74,8 +74,7 @@ final public origin when adding `NEXT_PUBLIC_SITE_URL`.
 
 - Replace the App Store placeholder when the final listing URL is available.
 - Confirm the registered company details and preferred contact addresses.
-- Have the draft Privacy Policy and Terms of Use reviewed by a qualified legal
-  professional.
+- Have the draft Terms of Use reviewed by a qualified legal professional.
 - Update the Privacy Policy before launch if analytics or crash reporting are
   added, naming the provider and the data it processes.
 - Confirm the final subscription price, RevenueCat configuration and account
@@ -85,7 +84,7 @@ final public origin when adding `NEXT_PUBLIC_SITE_URL`.
 
 - `/` — Chronicle Atlas home
 - `/england-871` — England 871 product page
-- `/privacy` — pre-launch privacy draft
+- `/privacy` — privacy policy
 - `/terms-of-use` — pre-launch terms draft
 - `/support` — user support
 - `/account-deletion` — account and data deletion instructions
