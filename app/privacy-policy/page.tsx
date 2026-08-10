@@ -5,7 +5,7 @@ export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
     "Draft privacy policy for Chronicle Atlas Ltd and England 871, our immersive history app covering medieval England from 871 to 1399.",
-  path: "/privacy-policy",
+  path: "/privacy",
 });
 
 export default function PrivacyPolicyPage() {

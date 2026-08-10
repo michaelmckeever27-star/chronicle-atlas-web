@@ -8,7 +8,7 @@ const productLinks = [
 
 const companyLinks = [
   { href: "/contact", label: "Contact" },
-  { href: "/privacy-policy", label: "Privacy policy" },
+  { href: "/privacy", label: "Privacy policy" },
   { href: "/terms-of-use", label: "Terms of use" },
 ];
 

@@ -85,7 +85,7 @@ final public origin when adding `NEXT_PUBLIC_SITE_URL`.
 
 - `/` — Chronicle Atlas home
 - `/england-871` — England 871 product page
-- `/privacy-policy` — pre-launch privacy draft
+- `/privacy` — pre-launch privacy draft
 - `/terms-of-use` — pre-launch terms draft
 - `/support` — user support
 - `/account-deletion` — account and data deletion instructions
