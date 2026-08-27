@@ -27,7 +27,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Before launch, set `NEXT_PUBLIC_SITE_URL` in `.env.local` to the canonical site
+For production, set `NEXT_PUBLIC_SITE_URL` in `.env.local` to the canonical site
 origin, with no trailing slash. The production fallback is
 `https://chronicleatlas.app`.
 
@@ -70,9 +70,9 @@ vercel --prod
 When prompted by `vercel`, accept the detected Next.js settings. Enter the
 final public origin when adding `NEXT_PUBLIC_SITE_URL`.
 
-## Content and launch checklist
+## Content and release checklist
 
-- Replace the App Store placeholder when the final listing URL is available.
+- Confirm the England 871 App Store link remains current before each release.
 - Confirm the registered company details and preferred contact addresses.
 - Have the draft Terms of Use reviewed by a qualified legal professional.
 - Update the Privacy Policy before launch if analytics or crash reporting are

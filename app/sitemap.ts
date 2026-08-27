@@ -14,7 +14,7 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route, index) => ({
     url: new URL(route || "/", siteUrl).toString(),
-    lastModified: new Date("2026-08-10"),
+    lastModified: new Date("2026-08-27"),
     changeFrequency: index < 2 ? "monthly" : "yearly",
     priority: index === 0 ? 1 : index === 1 ? 0.9 : 0.5,
   }));

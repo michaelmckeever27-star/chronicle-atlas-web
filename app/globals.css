@@ -148,6 +148,7 @@ h3 {
 }
 
 .button:focus-visible,
+.app-store-button:focus-visible,
 .site-header a:focus-visible,
 .mobile-menu summary:focus-visible,
 .site-footer a:focus-visible,
@@ -199,7 +200,15 @@ h3 {
   font-size: 1.04rem;
   font-weight: 700;
   line-height: 1.05;
+  text-decoration: none;
+  transition: background 180ms ease, border 180ms ease, color 180ms ease,
+    transform 180ms ease;
   user-select: none;
+}
+
+.app-store-button:hover {
+  border-color: var(--gold-bright);
+  transform: translateY(-2px);
 }
 
 .app-store-button small {

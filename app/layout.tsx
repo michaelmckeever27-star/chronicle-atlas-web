@@ -6,7 +6,7 @@ import "./globals.css";
 
 const title = "Chronicle Atlas | History, vividly told";
 const description =
-  "Immersive history apps, guided courses and interactive storytelling—beginning with England 871, covering medieval England from 871 to 1399.";
+  "England 871 is available now on the App Store. Explore medieval England from 871 to 1399 through immersive stories, guided courses and interactive maps.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,

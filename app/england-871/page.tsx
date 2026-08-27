@@ -2,14 +2,27 @@ import { AppStoreButton } from "@/components/AppStoreButton";
 import { ButtonLink } from "@/components/ButtonLink";
 import { FeatureCard } from "@/components/FeatureCard";
 import { IPhoneMockup } from "@/components/IPhoneMockup";
+import { ENGLAND_871_APP_STORE_URL } from "@/lib/links";
 import { createPageMetadata } from "@/lib/metadata";
 
+const england871Description =
+  "England 871 is available now on the App Store. Explore medieval England from 871 to 1399 through monarchs, battles, maps, ordinary life, guided courses and Chronicle Cards.";
+
 export const metadata = createPageMetadata({
-  title: "England 871 — An immersive history app",
-  description:
-    "England 871 is an immersive history app covering medieval England from 871 to 1399 through monarchs, battles, maps, ordinary life, guided courses and Chronicle Cards.",
+  title: "England 871 — Available now for iPhone",
+  description: england871Description,
   path: "/england-871",
 });
+
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "England 871",
+  applicationCategory: "EducationalApplication",
+  operatingSystem: "iOS",
+  url: ENGLAND_871_APP_STORE_URL,
+  description: england871Description,
+};
 
 const premiumFeatures = [
   {
@@ -67,7 +80,7 @@ export default function England871Page() {
                 See inside <span aria-hidden="true">↓</span>
               </ButtonLink>
             </div>
-            <p className="availability-note">Designed for iPhone · Launching on iOS</p>
+            <p className="availability-note">Available now for iPhone</p>
           </div>
           <div className="product-phone-wrap">
             <div className="year-ring" aria-hidden="true"><span>871</span></div>
@@ -277,12 +290,18 @@ export default function England871Page() {
 
       <section className="section product-final-cta" id="download">
         <div className="site-container product-final-inner">
-          <p className="eyebrow eyebrow-gold">The chronicle begins soon</p>
+          <p className="eyebrow eyebrow-gold">Available now on the App Store</p>
           <h2>Explore England across 871–1399.</h2>
-          <p>From Alfred the Great to Richard II—coming soon to iPhone.</p>
+          <p>From Alfred the Great to Richard II—download England 871 for iPhone.</p>
           <AppStoreButton light />
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema),
+        }}
+      />
     </>
   );
 }

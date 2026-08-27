@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Immersive history apps & interactive storytelling",
   description:
-    "Step inside medieval England from 871 to 1399 with Chronicle Atlas—immersive history apps, guided courses, interactive maps and richly researched stories.",
+    "England 871 is available now on the App Store. Step inside medieval England from 871 to 1399 with immersive stories, guided courses and interactive maps.",
   path: "/",
 });
 
