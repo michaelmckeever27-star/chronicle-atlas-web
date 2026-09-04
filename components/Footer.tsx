@@ -3,7 +3,7 @@ import Link from "next/link";
 const productLinks = [
   { href: "/england-871", label: "England 871" },
   { href: "/support", label: "Support" },
-  { href: "/account-deletion", label: "Delete account" },
+  { href: "/account-deletion", label: "Data deletion" },
 ];
 
 const companyLinks = [

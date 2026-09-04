@@ -5,16 +5,16 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Support",
   description:
-    "Get help with England 871, the Chronicle Atlas app covering medieval England from 871 to 1399, including accounts, subscriptions and feedback.",
+    "Get help with England 871, including local progress, App Store subscriptions, purchase restoration and feedback.",
   path: "/support",
 });
 
 const topics = [
   {
     number: "01",
-    title: "Account help",
-    text: "Sign-in issues, email changes, saved progress and account access.",
-    subject: "Account help",
+    title: "Using the app",
+    text: "Technical help, local progress, settings and accessibility questions.",
+    subject: "App help",
   },
   {
     number: "02",
@@ -25,7 +25,7 @@ const topics = [
   {
     number: "03",
     title: "Restore purchases",
-    text: "Help recovering Premium after reinstalling or moving to a new iPhone.",
+    text: "Help restoring Premium for the same Apple ID. Local Chronicle progress is not restored.",
     subject: "Restore purchases",
   },
   {
@@ -63,9 +63,9 @@ export default function SupportPage() {
               <h2>Start with the right subject.</h2>
             </div>
             <p>
-              Including your account email, device model and iOS version can
-              help us understand technical problems more quickly. Never email a
-              password or full payment-card details.
+              Including your device model, iOS version and a short description
+              of what happened can help us understand technical problems more
+              quickly. Never email full payment-card details.
             </p>
           </div>
           <div className="support-grid">
@@ -95,6 +95,8 @@ export default function SupportPage() {
             You can view, change or cancel an App Store subscription in iPhone
             Settings under your Apple ID. If access is missing after purchase,
             open England 871 and choose <strong>Restore Purchases</strong>.
+            This restores eligible Premium access, not locally stored Chronicle
+            progress.
           </p>
         </div>
       </section>

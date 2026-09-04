@@ -36,7 +36,7 @@ export default function ContactPage() {
               <span>01</span>
               <div>
                 <h3>Product support</h3>
-                <p>Account, subscription and technical help for England 871.</p>
+                <p>Subscription and technical help for England 871.</p>
                 <a href="/support">Visit support →</a>
               </div>
             </article>

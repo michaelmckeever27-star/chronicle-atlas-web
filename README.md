@@ -74,20 +74,19 @@ final public origin when adding `NEXT_PUBLIC_SITE_URL`.
 
 - Confirm the England 871 App Store link remains current before each release.
 - Confirm the registered company details and preferred contact addresses.
-- Have the draft Terms of Use reviewed by a qualified legal professional.
-- Update the Privacy Policy before launch if analytics or crash reporting are
-  added, naming the provider and the data it processes.
-- Confirm the final subscription price, RevenueCat configuration and account
-  deletion workflow in the shipped app.
+- Review the Privacy Policy before adding analytics, crash reporting or another
+  service that processes user information.
+- Confirm the RevenueCat configuration and local-data deletion workflow against
+  each released app version.
 
 ## Site structure
 
 - `/` — Chronicle Atlas home
 - `/england-871` — England 871 product page
 - `/privacy` — privacy policy
-- `/terms-of-use` — pre-launch terms draft
+- `/terms-of-use` — published terms of use
 - `/support` — user support
-- `/account-deletion` — account and data deletion instructions
+- `/account-deletion` — local data deletion instructions
 - `/contact` — company contact
 
 SEO metadata, Open Graph imagery, `robots.txt` and `sitemap.xml` are generated

@@ -56,7 +56,7 @@ const freeFeatures = [
   "Selected chronicle cards and biographies",
   "An introduction to medieval England from 871 to 1399",
   "Sample course lessons and map experiences",
-  "Saved progress with a Chronicle Atlas account",
+  "Progress and preferences stored locally on your iPhone",
 ];
 
 export default function England871Page() {

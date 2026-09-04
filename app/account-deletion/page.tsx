@@ -1,11 +1,10 @@
-import { ButtonLink } from "@/components/ButtonLink";
 import { PageHero } from "@/components/PageHero";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Account Deletion",
+  title: "Local Data and Deletion",
   description:
-    "Request deletion of your Chronicle Atlas or England 871 account and associated personal data.",
+    "How to reset locally stored England 871 progress and manage related App Store subscription information.",
   path: "/account-deletion",
 });
 
@@ -13,63 +12,64 @@ export default function AccountDeletionPage() {
   return (
     <>
       <PageHero
-        eyebrow="Your account"
-        title="Request account deletion"
-        intro="You can ask us to delete your Chronicle Atlas account and personal data associated with England 871."
+        eyebrow="Privacy and data"
+        title="Local data and deletion"
+        intro="England 871 does not create a user account. Your Chronicle progress and preferences are stored locally on your iPhone and can be reset in the app."
       />
+
       <section className="section deletion-section">
         <div className="site-container deletion-grid">
           <div className="deletion-steps">
-            <p className="eyebrow">How to make a request</p>
+            <p className="eyebrow">Reset local progress</p>
             <ol>
               <li>
                 <span>01</span>
                 <div>
-                  <h2>Email us</h2>
+                  <h2>Open Settings</h2>
                   <p>
-                    Write to <a href="mailto:privacy@chronicleatlas.app">privacy@chronicleatlas.app</a> from the address connected to your account.
+                    In England 871, open <strong>My Chronicle</strong>, then
+                    select <strong>Settings</strong>.
                   </p>
                 </div>
               </li>
               <li>
                 <span>02</span>
                 <div>
-                  <h2>Use the subject line</h2>
-                  <p><strong>Account deletion request — England 871</strong></p>
+                  <h2>Choose the reset control</h2>
+                  <p>
+                    Under <strong>Your Chronicle</strong>, choose{" "}
+                    <strong>Reset local progress</strong>.
+                  </p>
                 </div>
               </li>
               <li>
                 <span>03</span>
                 <div>
-                  <h2>Confirm the request</h2>
+                  <h2>Confirm the action</h2>
                   <p>
-                    We may ask you to verify account ownership before deletion
-                    to protect your information.
+                    Review the confirmation message, then choose{" "}
+                    <strong>Reset local progress</strong> again. The reset is
+                    permanent for the Chronicle data held on that iPhone.
                   </p>
                 </div>
               </li>
             </ol>
-            <ButtonLink
-              href="mailto:privacy@chronicleatlas.app?subject=Account%20deletion%20request%20%E2%80%94%20England%20871"
-              variant="secondary"
-            >
-              Start deletion request
-            </ButtonLink>
           </div>
 
           <aside className="data-panel">
-            <p className="eyebrow eyebrow-gold">What may be deleted</p>
+            <p className="eyebrow eyebrow-gold">What the reset removes</p>
             <ul>
-              <li>Account profile and authentication link</li>
-              <li>Saved course and reading progress</li>
-              <li>Saved chronicle cards and preferences</li>
-              <li>Notification preferences and linked device tokens</li>
-              <li>Other app data associated with your account</li>
+              <li>Bookmarks and recently viewed items</li>
+              <li>Reading and course progress</li>
+              <li>Campaign decisions and quiz results</li>
+              <li>Achievements and rewards</li>
+              <li>Reminder choices and local preferences</li>
             </ul>
             <p>
-              Some limited records may be retained where required for legal,
-              security, fraud-prevention or accounting purposes. We will explain
-              any applicable retention when responding to your request.
+              Chronicle Atlas does not hold this progress in a cloud account and
+              cannot remotely retrieve or restore it. Deleting England 871 may
+              also remove locally stored progress, depending on device and
+              backup behaviour.
             </p>
           </aside>
         </div>
@@ -78,16 +78,40 @@ export default function AccountDeletionPage() {
       <section className="section deletion-warning-section">
         <div className="site-container deletion-warning">
           <div>
-            <p className="eyebrow">Before you delete</p>
-            <h2>Account deletion is separate from cancellation.</h2>
+            <p className="eyebrow">Premium access</p>
+            <h2>Local progress and purchases are separate.</h2>
           </div>
           <p>
-            Deleting your Chronicle Atlas account does not automatically cancel
-            an annual subscription billed by Apple. Manage or cancel the
-            subscription separately in your Apple account settings. Apple and
-            RevenueCat may retain transaction records under their own legal
-            obligations and policies.
+            Resetting progress or deleting the app does not cancel an App Store
+            subscription. Manage or cancel the subscription separately through
+            Apple. <strong>Restore Purchases</strong> may restore an eligible
+            Premium entitlement associated with the same Apple ID, but it does
+            not restore historical progress or preferences.
           </p>
+        </div>
+      </section>
+
+      <section className="section support-note-section">
+        <div className="site-container support-note">
+          <div>
+            <p className="eyebrow">For Meta</p>
+            <h2>No Meta-linked account or profile.</h2>
+          </div>
+          <div>
+            <p>
+              England 871 does not use Facebook Login and does not maintain a
+              Meta-linked user account or cloud progress profile. Chronicle
+              Atlas therefore has no Meta-linked England 871 account data to
+              delete.
+            </p>
+            <p>
+              For questions about personal information you voluntarily supplied
+              in a support or privacy message, email{" "}
+              <a href="mailto:privacy@chronicleatlas.app">privacy@chronicleatlas.app</a>.
+              Apple and RevenueCat control their own transaction and entitlement
+              records under their policies and retention obligations.
+            </p>
+          </div>
         </div>
       </section>
     </>
