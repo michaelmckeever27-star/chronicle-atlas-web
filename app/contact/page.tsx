@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { BrandLogo } from "@/components/BrandLogo";
 import { PageHero } from "@/components/PageHero";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -61,7 +62,7 @@ export default function ContactPage() {
       </section>
       <section className="section company-note-section">
         <div className="site-container company-note">
-          <span className="brand-mark brand-mark-large" aria-hidden="true">CA</span>
+          <BrandLogo className="company-seal" symbolOnly />
           <div>
             <p className="eyebrow">The company</p>
             <h2>Chronicle Atlas Ltd</h2>

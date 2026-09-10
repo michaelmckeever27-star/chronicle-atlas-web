@@ -4,9 +4,9 @@ import { Header } from "@/components/Header";
 import { siteUrl } from "@/lib/metadata";
 import "./globals.css";
 
-const title = "Chronicle Atlas | History, vividly told";
+const title = "Chronicle Atlas | England 871 for iPhone";
 const description =
-  "England 871 is available now on the App Store. Explore medieval England from 871 to 1399 through immersive stories, guided courses and interactive maps.";
+  "Meet the families who fought for England’s crown. Explore daily Chronicles, royal relationships, maps and guided stories from 871 to 1399 in England 871.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og.png",
-        width: 1734,
-        height: 907,
-        alt: "Chronicle Atlas — England 871, covering medieval England from 871 to 1399.",
+        width: 2400,
+        height: 1260,
+        alt: "Chronicle Atlas — meet the families who fought for England’s crown in England 871.",
       },
     ],
   },
@@ -60,6 +60,7 @@ const organisationSchema = {
   url: siteUrl.toString(),
   email: "hello@chronicleatlas.app",
   description,
+  logo: new URL("/brand/atlas-seal-icon.png", siteUrl).toString(),
 };
 
 export default function RootLayout({

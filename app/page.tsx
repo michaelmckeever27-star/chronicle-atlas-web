@@ -1,64 +1,44 @@
 import { AppStoreButton } from "@/components/AppStoreButton";
+import { AppTour } from "@/components/AppTour";
 import { ButtonLink } from "@/components/ButtonLink";
-import { FeatureCard } from "@/components/FeatureCard";
+import { ChronicleSample } from "@/components/ChronicleSample";
 import { IPhoneMockup } from "@/components/IPhoneMockup";
+import { PricingPanel } from "@/components/PricingPanel";
+import { RoyalRelationshipExplorer } from "@/components/RoyalRelationshipExplorer";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Immersive history apps & interactive storytelling",
+  title: "England 871 — medieval history for iPhone",
   description:
-    "England 871 is available now on the App Store. Step inside medieval England from 871 to 1399 with immersive stories, guided courses and interactive maps.",
+    "Meet the families who fought for England’s crown. Explore daily Chronicles, royal relationships, maps and guided stories from 871 to 1399.",
   path: "/",
 });
 
-const experiences = [
+const faqs = [
   {
-    eyebrow: "Every day",
-    title: "Daily history",
-    text: "Open the app to a carefully chosen event, person or detail connected to the date—and see the wider story around it.",
-    symbol: "I",
+    question: "Is England 871 only about the year 871?",
+    answer:
+      "No. The story begins with Alfred’s accession in 871 and continues to Richard II’s deposition in 1399. The app connects more than five centuries of medieval England.",
   },
   {
-    eyebrow: "Learn in chapters",
-    title: "Guided courses",
-    text: "Follow clear, structured routes through complex periods, with each lesson building context without overwhelming you.",
-    symbol: "II",
+    question: "What can I read for free?",
+    answer:
+      "You can download the app free, read a complete Daily Chronicle and follow the complete six-episode Alfred and his family starter series. Selected reference content is also available before subscribing.",
   },
   {
-    eyebrow: "Know the ground",
-    title: "Living maps",
-    text: "Trace kingdoms, routes, raids and shifting frontiers on maps designed to reveal why place mattered.",
-    symbol: "III",
+    question: "What does Premium include?",
+    answer:
+      "Premium opens the full 72-story Chronicle archive, the remaining royal series and the deeper guided and interactive features. It is £19.99 per year in the UK; the App Store shows the price for your region before purchase.",
   },
   {
-    eyebrow: "Build your library",
-    title: "Chronicle cards",
-    text: "Collect concise profiles of people, places and events, then revisit the threads that connect them.",
-    symbol: "IV",
+    question: "How does Chronicle Atlas handle uncertainty?",
+    answer:
+      "The app distinguishes evidence from interpretation, labels artistic reconstructions and includes source notes. Where the historical record is uncertain or disputed, the writing says so plainly.",
   },
   {
-    eyebrow: "Beyond the throne",
-    title: "Ordinary life",
-    text: "Explore homes, beliefs, food, work, law and language—the texture of life behind the famous names.",
-    symbol: "V",
-  },
-  {
-    eyebrow: "Power & succession",
-    title: "Monarchs",
-    text: "Understand rulers as people in a network of families, rivals, loyalties and difficult choices.",
-    symbol: "VI",
-  },
-  {
-    eyebrow: "Conflict in context",
-    title: "Battles",
-    text: "See what led to each confrontation, how it unfolded and what changed after the field fell quiet.",
-    symbol: "VII",
-  },
-  {
-    eyebrow: "Choose a path",
-    title: "Interactive campaigns",
-    text: "Test your judgement against the pressures of the period and discover how every decision reshapes the story.",
-    symbol: "VIII",
+    question: "Do I need an account?",
+    answer:
+      "No. Progress and preferences stay on your iPhone. They do not sync to another device, and deleting the app may remove that local progress. App Store purchases can be restored separately.",
   },
 ];
 
@@ -66,177 +46,141 @@ export default function Home() {
   return (
     <>
       <section className="home-hero">
-        <div className="hero-grain" aria-hidden="true" />
         <div className="site-container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="eyebrow eyebrow-gold">History, vividly told</p>
-            <h1>
-              The past is not a list of dates. <em>It is a world.</em>
-            </h1>
+            <p className="eyebrow eyebrow-gold">England 871 · for iPhone</p>
+            <h1>Meet the families who fought for England’s crown.</h1>
             <p className="hero-intro">
-              Chronicle Atlas creates immersive history apps, guided courses
-              and interactive stories that let you see how lives, places and
-              decisions connect.
+              Explore royal rivalries, daily Chronicles and the places behind
+              the stories—from Alfred the Great to Richard II.
             </p>
             <div className="hero-actions">
-              <ButtonLink href="/england-871" variant="light">
-                Discover England 871
-                <span aria-hidden="true">→</span>
+              <AppStoreButton />
+              <ButtonLink href="#sample" variant="light">
+                Try a Chronicle <span aria-hidden="true">↓</span>
               </ButtonLink>
-              <AppStoreButton light />
             </div>
+            <p className="availability-note">Free to download · Optional Premium</p>
           </div>
 
-          <div
-            className="atlas-visual"
-            role="img"
-            aria-label="A stylised map marking 871 as the starting point of the England 871 timeline"
-          >
-            <div className="atlas-year">
-              <span>England</span>
-              <strong>871</strong>
-              <small>A kingdom not yet made</small>
-            </div>
-            <span className="map-line map-line-one" aria-hidden="true" />
-            <span className="map-line map-line-two" aria-hidden="true" />
-            <span className="map-place map-place-york">Jórvík</span>
-            <span className="map-place map-place-mercia">Mercia</span>
-            <span className="map-place map-place-wessex">Wessex</span>
-            <span className="map-place map-place-winchester">Winchester</span>
-            <span className="map-date">Anno Domini · DCCCLXXI</span>
-          </div>
-        </div>
-        <div className="site-container hero-footnotes" aria-label="Product principles">
-          <span>Immersive by design</span>
-          <span>Grounded in evidence</span>
-          <span>Made for curious minds</span>
-        </div>
-      </section>
-
-      <section className="section manifesto-section">
-        <div className="site-container narrow-intro">
-          <p className="eyebrow">A different way into history</p>
-          <h2>Scholarship with a sense of discovery.</h2>
-          <p>
-            We turn rigorous research into experiences that reward curiosity.
-            Start with a person, a place or a single day. Follow the connections
-            and watch a whole age come into view.
-          </p>
-        </div>
-      </section>
-
-      <section className="section product-feature-section">
-        <div className="site-container product-feature-grid">
-          <div className="phone-stage">
+          <div className="hero-phone-stage">
+            <span className="hero-orbit hero-orbit-one" aria-hidden="true" />
+            <span className="hero-orbit hero-orbit-two" aria-hidden="true" />
             <IPhoneMockup
-              src="/screenshots/today.png"
-              alt="England 871 Today screen showing a daily Chronicle story"
-              sizes="(max-width: 839px) 250px, 250px"
-              className="phone-home"
-              screenBackground="#fefaf1"
-              statusBarBackground="#eef2f5"
-              statusBarTheme="light"
+              src="/screenshots/reader.png"
+              alt="England 871 Chronicle reader showing Alfred becoming king in 871"
+              sizes="(max-width: 839px) 280px, 330px"
+              className="hero-phone"
+              screenBackground="#3046c5"
+              statusBarBackground="#3046c5"
+              statusBarTheme="dark"
               priority
             />
-            <div className="stage-caption">01 · First release</div>
+            <span className="hero-screen-note">A complete story in six cards</span>
           </div>
-
-          <div className="product-feature-copy">
-            <p className="eyebrow">Introducing our first app</p>
-            <h2>England 871</h2>
-            <p className="large-copy">
-              From Alfred the Great to Richard II, explore more than five
-              centuries of medieval England.
-            </p>
-            <p>
-              England 871 is an immersive history app covering medieval England
-              from 871 to 1399. It brings the period to life through daily
-              stories, layered maps, guided learning and interactive decisions.
-            </p>
-            <ul className="tick-list">
-              <li>Travel through 871–1399 on a connected timeline</li>
-              <li>Explore monarchs, battles, ordinary life and Chronicle Cards</li>
-              <li>See how evidence and interpretation shape the story</li>
-            </ul>
-            <ButtonLink href="/england-871" variant="secondary">
-              Explore the app <span aria-hidden="true">→</span>
-            </ButtonLink>
-          </div>
+        </div>
+        <div className="site-container hero-footnotes" aria-label="England 871 at a glance">
+          <span><strong>871–1399</strong> Five centuries connected</span>
+          <span><strong>72 Chronicles</strong> Short stories with depth</span>
+          <span><strong>No account</strong> Start exploring immediately</span>
         </div>
       </section>
 
-      <section className="section experiences-section">
+      <section className="section sample-section" id="sample">
         <div className="site-container">
           <div className="section-heading-row">
             <div>
-              <p className="eyebrow">Inside every Chronicle Atlas experience</p>
-              <h2>Many ways to enter the story.</h2>
+              <p className="eyebrow">Try a Chronicle</p>
+              <h2>One day. Six cards. A larger world.</h2>
             </div>
             <p>
-              Choose a structured path or follow your curiosity. Each feature
-              adds another layer to the world.
+              Read a complete short edition adapted from the free app archive.
+              No email, account or subscription required.
             </p>
           </div>
-          <div className="feature-grid">
-            {experiences.map((item, index) => (
-              <FeatureCard
-                key={item.title}
-                eyebrow={item.eyebrow}
-                title={item.title}
-                symbol={item.symbol}
-                featured={index === 0 || index === 7}
-              >
-                {item.text}
-              </FeatureCard>
-            ))}
-          </div>
+          <ChronicleSample />
         </div>
       </section>
 
-      <section className="section course-section">
-        <div className="site-container course-grid">
-          <div>
-            <p className="eyebrow eyebrow-gold">From spark to understanding</p>
-            <h2>Explore freely. Learn with purpose.</h2>
+      <section className="section relationships-section" id="royal-relationships">
+        <div className="site-container">
+          <div className="section-heading-row section-heading-light">
+            <div>
+              <p className="eyebrow eyebrow-gold">Royal relationships</p>
+              <h2>A crown is never a story about one person.</h2>
+            </div>
+            <p>
+              Select a member of Alfred’s family to see how marriage, descent
+              and succession joined Wessex and Mercia.
+            </p>
           </div>
-          <ol className="course-steps">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>Begin with a moment</h3>
-                <p>A scene, object or decision opens the door.</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>See the connections</h3>
-                <p>Maps and chronicle cards reveal the wider pattern.</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>Test your understanding</h3>
-                <p>Interactive campaigns turn knowledge into judgement.</p>
-              </div>
-            </li>
-          </ol>
+          <RoyalRelationshipExplorer />
+        </div>
+      </section>
+
+      <section className="section tour-section" id="tour">
+        <div className="site-container">
+          <div className="section-heading-row">
+            <div>
+              <p className="eyebrow">Inside England 871</p>
+              <h2>Start with a story. Follow every connection.</h2>
+            </div>
+            <p>
+              Five main areas make room for quick reading and deeper exploration.
+              These are authentic screens from the current iPhone release.
+            </p>
+          </div>
+          <AppTour />
+        </div>
+      </section>
+
+      <section className="section pricing-section" id="pricing">
+        <div className="site-container">
+          <div className="section-heading-row section-heading-light">
+            <div>
+              <p className="eyebrow eyebrow-gold">Free and Premium</p>
+              <h2>Try the story before you unlock the archive.</h2>
+            </div>
+            <p>
+              England 871 is free to download. Premium is an optional annual
+              subscription purchased inside the iPhone app.
+            </p>
+          </div>
+          <PricingPanel />
+        </div>
+      </section>
+
+      <section className="section faq-section" id="faq">
+        <div className="site-container faq-grid">
+          <div>
+            <p className="eyebrow">Good to know</p>
+            <h2>Questions before you begin.</h2>
+            <p className="faq-intro">
+              Chronicle Atlas is the publisher. England 871 is our first app: a
+              connected guide to medieval England, built for curious readers.
+            </p>
+          </div>
+          <div className="faq-list">
+            {faqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}<span aria-hidden="true">+</span></summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section final-cta-section">
         <div className="site-container final-cta">
           <div>
-            <p className="eyebrow">The first chapter</p>
-            <h2>Enter medieval England.</h2>
-            <p>Explore the story from Alfred the Great to Richard II.</p>
+            <p className="eyebrow eyebrow-gold">England 871 · version 1.2</p>
+            <h2>Five centuries. One connected story.</h2>
+            <p>Download free and meet the people behind England’s crown.</p>
           </div>
           <div className="final-cta-actions">
-            <ButtonLink href="/england-871" variant="light">
-              Discover England 871
-            </ButtonLink>
-            <AppStoreButton light />
+            <AppStoreButton />
+            <ButtonLink href="/england-871" variant="light">Explore the app</ButtonLink>
           </div>
         </div>
       </section>

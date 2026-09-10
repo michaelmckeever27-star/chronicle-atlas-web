@@ -29,9 +29,9 @@ export function createPageMetadata({
       images: [
         {
           url: "/og.png",
-          width: 1734,
-          height: 907,
-          alt: "Chronicle Atlas — England 871, covering medieval England from 871 to 1399.",
+          width: 2400,
+          height: 1260,
+          alt: "Chronicle Atlas — meet the families who fought for England’s crown in England 871.",
         },
       ],
     },

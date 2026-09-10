@@ -39,36 +39,25 @@ npm run build
 npm run start
 ```
 
-## Deploy to Vercel — dashboard
+## Deploy to the existing Vercel site
 
-1. Push this project to a GitHub, GitLab or Bitbucket repository.
-2. Sign in to [Vercel](https://vercel.com) and choose **Add New → Project**.
-3. Import the repository.
-4. Leave **Framework Preset** set to **Next.js**.
-5. Leave the build command as `next build` and the output directory as the
-   Next.js default. No root-directory change is needed.
-6. Add an environment variable named `NEXT_PUBLIC_SITE_URL` with the final
-   production origin, for example `https://chronicleatlas.app`.
-7. Select **Deploy**.
-8. In **Project Settings → Domains**, add the production domain. If its value
-   differs from step 6, update `NEXT_PUBLIC_SITE_URL` and redeploy so canonical
-   and Open Graph URLs are correct.
+The production site is already connected to
+`michaelmckeever27-star/chronicle-atlas-web` through Vercel’s Git integration.
+`main` is the repository’s default and production branch. Do not create a new
+Vercel project for routine releases.
 
-Every push to the production branch will create a production deployment;
-pull requests and other branches receive preview deployments automatically.
+1. Run `npm run lint` and `npm run build` locally.
+2. Commit the intended source and generated brand assets.
+3. Push the verified commit to `origin/main`.
+4. Open the existing Chronicle Atlas project in Vercel and wait for the
+   production deployment to report **Ready**.
+5. Confirm `https://chronicleatlas.app`, `/england-871`, `/privacy`, `/support`
+   and `/contact` serve the new commit and that the App Store link resolves.
 
-## Deploy to Vercel — CLI alternative
-
-```bash
-npm install -g vercel
-vercel login
-vercel
-vercel env add NEXT_PUBLIC_SITE_URL production
-vercel --prod
-```
-
-When prompted by `vercel`, accept the detected Next.js settings. Enter the
-final public origin when adding `NEXT_PUBLIC_SITE_URL`.
+The existing project must keep `NEXT_PUBLIC_SITE_URL` set to
+`https://chronicleatlas.app` so canonical, sitemap and Open Graph URLs remain
+correct. Pull requests and non-production branches can be used for Vercel
+previews when a change needs review before merging.
 
 ## Content and release checklist
 
@@ -91,3 +80,32 @@ final public origin when adding `NEXT_PUBLIC_SITE_URL`.
 
 SEO metadata, Open Graph imagery, `robots.txt` and `sitemap.xml` are generated
 through the Next.js metadata APIs.
+
+## Brand assets
+
+The approved Atlas Seal uses one path-and-viewBox source in
+`lib/atlas-seal.json`. The shared React logo and every exported asset use that
+same geometry. Rebuild the favicon, touch icon, Open Graph image, transparent
+PNG exports and SVG variants with:
+
+```bash
+npm run brand:build
+```
+
+Generated files are written to `public/brand`, `app/icon.png`,
+`app/apple-icon.png` and `public/og.png`. Do not edit generated variants
+individually; update the master geometry and rebuild them together.
+
+Source Serif 4 is used for editorial headings and the live wordmark. Its SIL
+Open Font License is retained at `public/fonts/SOURCE-SERIF-4-LICENSE.txt`.
+The product screenshots and labelled artistic reconstructions are approved
+England 871 v1.2 assets. The website preserves their native proportions and
+serves them through Next.js image optimisation.
+
+## Current product facts
+
+- England 871 covers medieval England from 871 to 1399.
+- The current public release is version 1.2.
+- The app is free to download; optional Premium is £19.99 per year in the UK.
+- App Store purchases and subscriptions are completed in the iPhone app.
+- The app has no Chronicle Atlas account; reading progress is stored locally.
