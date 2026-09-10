@@ -72,6 +72,8 @@ previews when a change needs review before merging.
 
 - `/` — Chronicle Atlas home
 - `/england-871` — England 871 product page
+- `/download` — fixed temporary redirect to the England 871 App Store listing
+- `/get-app` — visible App Store fallback page for restricted in-app browsers
 - `/privacy` — privacy policy
 - `/terms-of-use` — published terms of use
 - `/support` — user support

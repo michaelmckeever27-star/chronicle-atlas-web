@@ -4,6 +4,7 @@ import { siteUrl } from "@/lib/metadata";
 const routes = [
   "",
   "/england-871",
+  "/get-app",
   "/privacy",
   "/terms-of-use",
   "/support",
