@@ -6,7 +6,7 @@ import "./globals.css";
 
 const title = "Chronicle Atlas | England 871 for iPhone";
 const description =
-  "Meet the families who fought for England’s crown. Explore daily Chronicles, royal relationships, maps and guided stories from 871 to 1399 in England 871.";
+  "Step inside medieval England with England 871. Explore illustrated stories, people, places, a timeline and an interactive map from 871 to 1399.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "medieval England 871–1399",
     "Alfred the Great to Richard II",
     "interactive history",
-    "history courses",
+    "medieval history stories",
   ],
   authors: [{ name: "Chronicle Atlas Ltd" }],
   creator: "Chronicle Atlas Ltd",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 2400,
         height: 1260,
-        alt: "Chronicle Atlas — meet the families who fought for England’s crown in England 871.",
+        alt: "Chronicle Atlas — step inside medieval England with England 871.",
       },
     ],
   },

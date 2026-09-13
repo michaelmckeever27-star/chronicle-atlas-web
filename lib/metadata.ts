@@ -31,7 +31,7 @@ export function createPageMetadata({
           url: "/og.png",
           width: 2400,
           height: 1260,
-          alt: "Chronicle Atlas — meet the families who fought for England’s crown in England 871.",
+          alt: "Chronicle Atlas — step inside medieval England with England 871.",
         },
       ],
     },

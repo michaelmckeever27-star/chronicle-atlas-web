@@ -8,7 +8,7 @@ import { ENGLAND_871_APP_STORE_URL } from "@/lib/links";
 import { createPageMetadata } from "@/lib/metadata";
 
 const england871Description =
-  "England 871 is an immersive iPhone guide to medieval England from 871 to 1399, with 72 Chronicles, royal families, maps, courses and interactive choices.";
+  "England 871 is an immersive iPhone history app covering medieval England from 871 to 1399 through illustrated Chronicles, Series, people, a timeline and an interactive map.";
 
 export const metadata = createPageMetadata({
   title: "England 871 — medieval history for iPhone",
@@ -22,22 +22,21 @@ const softwareApplicationSchema = {
   name: "England 871",
   applicationCategory: "EducationalApplication",
   operatingSystem: "iOS",
-  softwareVersion: "1.2",
   url: ENGLAND_871_APP_STORE_URL,
   description: england871Description,
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "GBP",
-    description: "Free to download with optional Premium subscription",
+    description: "Free to download with optional Premium subscriptions",
   },
 };
 
-const figures = [
-  ["72", "complete Chronicles"],
-  ["159", "dated events"],
-  ["28", "monarchs in context"],
-  ["87", "places to explore"],
+const scopeFacts = [
+  ["871–1399", "Medieval England"],
+  ["Today · Explore · Saved", "Three simple tabs"],
+  ["Local progress", "No account required"],
+  ["iPhone", "Free to download"],
 ];
 
 export default function England871Page() {
@@ -48,38 +47,36 @@ export default function England871Page() {
           <div className="product-hero-copy">
             <p className="eyebrow eyebrow-gold">Chronicle Atlas presents</p>
             <h1>England <strong>871</strong></h1>
-            <p className="product-hero-line">People worth following. Stories worth staying for.</p>
+            <p className="product-hero-line">A vivid route through medieval England.</p>
             <p className="hero-intro">
               England 871 is an immersive history app covering medieval England
-              from 871 to 1399. Follow royal families, open complete daily
-              Chronicles, visit the places behind them and see where evidence
-              leaves room for debate.
+              from 871 to 1399. Read illustrated Chronicles, follow connected
+              Series and move between people, dated events and places.
             </p>
             <div className="hero-actions" id="app-store">
               <AppStoreButton />
               <ButtonLink href="/#sample" variant="light">Try a Chronicle</ButtonLink>
             </div>
-            <p className="availability-note">Version 1.2 · Free to download · Optional Premium</p>
+            <p className="availability-note">Free to download · Optional Premium · No account</p>
           </div>
           <div className="product-phone-wrap">
             <span className="product-year-orbit" aria-hidden="true">871—1399</span>
             <IPhoneMockup
-              src="/screenshots/royals.png"
-              alt="England 871 Royal families screen with Alfred, Norman and Angevin story series"
+              src="/screenshots/england-871-reader.png"
+              alt="England 871 Chronicle reader showing an illustrated story about Eleanor of Aquitaine"
               sizes="(max-width: 839px) 280px, 330px"
               className="product-phone"
-              screenBackground="#3046c5"
-              statusBarBackground="#3046c5"
-              statusBarTheme="dark"
+              screenBackground="#fff8e6"
+              screenshotHasStatusBar
               priority
             />
           </div>
         </div>
       </section>
 
-      <section className="scope-strip" aria-label="England 871 content at a glance">
+      <section className="scope-strip" aria-label="England 871 at a glance">
         <div className="site-container scope-grid">
-          {figures.map(([value, label]) => (
+          {scopeFacts.map(([value, label]) => (
             <div key={label}>
               <strong>{value}</strong>
               <span>{label}</span>
@@ -93,11 +90,11 @@ export default function England871Page() {
           <div className="section-heading-row">
             <div>
               <p className="eyebrow">What makes it different</p>
-              <h2>History through the people who had to live it.</h2>
+              <h2>History through the lives that shaped it.</h2>
             </div>
             <p>
-              Read in a few minutes, then go further. Every route connects
-              narrative, place, relationship and evidence.
+              Begin with a readable story, then follow the people, places and
+              events that give it meaning.
             </p>
           </div>
           <div className="editorial-features">
@@ -111,11 +108,11 @@ export default function England871Page() {
                 />
                 <span>Artistic reconstruction</span>
               </div>
-              <p className="eyebrow">Short sessions, complete stories</p>
+              <p className="eyebrow">Concise, complete narratives</p>
               <h3>Open one Chronicle.</h3>
               <p>
-                Each edition has an opening, development and outcome—not an
-                endless feed of isolated facts.
+                Short illustrated cards turn a historical moment into a clear
+                story without reducing it to disconnected facts.
               </p>
             </article>
             <article>
@@ -128,11 +125,11 @@ export default function England871Page() {
                 />
                 <span>Artistic reconstruction</span>
               </div>
-              <p className="eyebrow">Connection changes the story</p>
-              <h3>Follow family and place.</h3>
+              <p className="eyebrow">A wider medieval world</p>
+              <h3>Look beyond the crown.</h3>
               <p>
-                A marriage, disputed inheritance or fortified town can explain
-                what a list of reigns leaves invisible.
+                Explore rulers and nobles alongside faith, communities, work
+                and the ordinary lives changed by political power.
               </p>
             </article>
             <article>
@@ -148,7 +145,7 @@ export default function England871Page() {
               <p className="eyebrow">Evidence stays visible</p>
               <h3>Know what we can know.</h3>
               <p>
-                Sources, uncertainty notes and reconstruction labels keep the
+                Source notes, uncertainty and reconstruction labels keep the
                 difference between evidence and interpretation clear.
               </p>
             </article>
@@ -160,12 +157,12 @@ export default function England871Page() {
         <div className="site-container">
           <div className="section-heading-row section-heading-light">
             <div>
-              <p className="eyebrow eyebrow-gold">Take the tour</p>
-              <h2>Five ways into medieval England.</h2>
+              <p className="eyebrow eyebrow-gold">Inside the app</p>
+              <h2>Stories, people, place and time—connected.</h2>
             </div>
             <p>
-              Browse the actual areas of the current app. The screenshots show
-              the released v1.2 experience, not a future concept.
+              These destinations sit within Explore. Today brings you back to
+              the archive, while Saved keeps the stories you want to revisit.
             </p>
           </div>
           <AppTour compact />
@@ -194,8 +191,8 @@ export default function England871Page() {
             <p className="eyebrow eyebrow-gold">A more honest kind of immersion</p>
             <h2>Not a textbook squeezed onto a screen.</h2>
             <p>
-              England 871 is built around relationships: ruler to household,
-              event to landscape, source to uncertainty and decision to consequence.
+              England 871 is built around relationships: person to household,
+              event to landscape and source to interpretation.
             </p>
           </div>
           <div className="comparison-list">
@@ -209,7 +206,7 @@ export default function England871Page() {
 
       <section className="section product-final-cta" id="download">
         <div className="site-container product-final-inner">
-          <p className="eyebrow eyebrow-gold">Available now on the App Store</p>
+          <p className="eyebrow eyebrow-gold">Available on the App Store</p>
           <h2>From Alfred the Great to Richard II.</h2>
           <p>Explore England across 871–1399. Free to download for iPhone.</p>
           <AppStoreButton />

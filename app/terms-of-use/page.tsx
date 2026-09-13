@@ -14,7 +14,7 @@ export default function TermsOfUsePage() {
       eyebrow="Legal"
       title="Terms of Use"
       intro="The terms for using England 871, the Chronicle Atlas website and Premium content."
-      lastUpdated="4 September 2026"
+      lastUpdated="13 September 2026"
     >
       <section>
         <h2>1. About these terms</h2>
@@ -32,8 +32,8 @@ export default function TermsOfUsePage() {
         <h2>2. Local progress and preferences</h2>
         <p>
           England 871 does not currently create user accounts. Reading history,
-          bookmarks, achievements, course activity, campaign decisions and
-          preferences are stored locally on the iPhone where you use the app.
+          saved items, Series progress and preferences are stored locally on
+          the iPhone where you use the app.
           They do not synchronise or transfer to another device and may be lost
           if the app is deleted. Chronicle Atlas cannot remotely retrieve or
           restore data held only on your iPhone.
@@ -44,9 +44,11 @@ export default function TermsOfUsePage() {
         <h2>3. Free access and Premium</h2>
         <p>
           England 871 includes free content and optional Premium content.
-          Premium is offered as an annual auto-renewing subscription. The
-          localised price and subscription period shown by Apple on the App
-          Store purchase screen at the time of purchase apply.
+          Premium is offered through monthly and annual auto-renewing plans.
+          Both plans provide the same Premium access. The plan you choose, its
+          localised price and its billing period, as shown by Apple on the App
+          Store purchase screen at the time of purchase, apply to the purchase
+          and each renewal.
         </p>
         <p>
           Payment is charged to your Apple ID through the App Store. Unless you
@@ -59,9 +61,9 @@ export default function TermsOfUsePage() {
           Refunds, billing disputes and changes to payment details are handled
           by Apple under its policies. <strong>Restore Purchases</strong> may
           recover an active Premium entitlement associated with the same Apple
-          ID. It does not restore reading history, bookmarks, achievements,
-          campaign decisions or other Chronicle progress and preferences stored
-          locally on a previous installation or device.
+          ID. It does not restore reading history, saved items, Series progress
+          or other preferences stored locally on a previous installation or
+          device.
         </p>
       </section>
 
@@ -76,10 +78,9 @@ export default function TermsOfUsePage() {
           the evidence.
         </p>
         <p>
-          Dates, maps, reconstructions, narrative details and interactive
-          decisions may involve scholarly judgement. Interactive choices do not
-          claim to reproduce private historical conversations exactly. We may
-          revise content as research develops or mistakes are identified.
+          Dates, maps, reconstructions and narrative details may involve
+          scholarly judgement. We may revise content as research develops or
+          mistakes are identified.
         </p>
       </section>
 
@@ -112,9 +113,8 @@ export default function TermsOfUsePage() {
         <h2>7. Availability and changes</h2>
         <p>
           We may update, add or remove features and content. We do not promise
-          uninterrupted or permanent availability. Core downloaded content is
-          designed to remain available offline, while purchases, restoration
-          and subscription management require a working connection to Apple and
+          uninterrupted or permanent availability. Purchases, restoration and
+          subscription management require a working connection to Apple and
           RevenueCat. If a paid service changes materially, any rights or
           remedies required by consumer law remain unaffected.
         </p>
@@ -136,9 +136,10 @@ export default function TermsOfUsePage() {
         <h2>9. Ending use and removing local data</h2>
         <p>
           You may stop using England 871 at any time. You can remove locally
-          stored Chronicle progress through <strong>My Chronicle → Settings →
-          Reset local progress</strong>. You may also delete the app, although
-          locally stored data may be affected by device and backup behaviour.
+          stored reading progress and preferences by opening England 871
+          Settings and choosing <strong>Reset local progress</strong>. You may
+          also delete the app, although locally stored data may be affected by
+          device and backup behaviour.
           Removing local data or deleting the app does not cancel your App Store
           subscription, which must be managed separately through Apple.
         </p>

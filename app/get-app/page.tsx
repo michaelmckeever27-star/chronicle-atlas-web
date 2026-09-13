@@ -26,8 +26,8 @@ export default function GetAppPage() {
           <p className="eyebrow">Available for iPhone</p>
           <h1>England 871</h1>
           <p className="get-app-description">
-            Explore medieval England from 871 to 1399 through royal families,
-            daily Chronicles, maps, courses and connected stories.
+            Explore medieval England from 871 to 1399 through illustrated
+            Chronicles, connected Series, people, a timeline and an interactive map.
           </p>
           <AppStoreButton label="Open in the App Store" />
           <p className="get-app-safari-note">

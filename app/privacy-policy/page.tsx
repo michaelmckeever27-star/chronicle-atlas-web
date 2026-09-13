@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       intro="How Chronicle Atlas Ltd handles information when you use England 871, visit this website or contact us."
-      lastUpdated="4 September 2026"
+      lastUpdated="13 September 2026"
     >
       <section>
         <h2>1. Who we are</h2>
@@ -43,20 +43,19 @@ export default function PrivacyPolicyPage() {
       <section>
         <h2>3. Your local Chronicle</h2>
         <p>
-          Reading progress, completed content, bookmarks, achievements,
-          campaign decisions, quiz results, rewards, recently viewed items,
-          reminder choices, appearance settings and other preferences are
-          stored locally on your iPhone. They are not stored in a Chronicle
+          Reading progress, completed content, saved items, recently viewed
+          items, reminder choices, appearance settings and other preferences
+          are stored locally on your iPhone. They are not stored in a Chronicle
           Atlas cloud account and do not synchronise or transfer to another
           device.
         </p>
         <p>
           Local Chronicle data may be lost if England 871 is deleted. Chronicle
           Atlas cannot remotely retrieve, view or restore progress that is held
-          only on your iPhone. You can erase this data from the app by opening{" "}
-          <strong>My Chronicle</strong>, selecting <strong>Settings</strong>,
-          choosing <strong>Reset local progress</strong> and confirming the
-          action. Read the full <a href="/account-deletion">data deletion instructions</a>.
+          only on your iPhone. You can erase this data by opening England 871
+          Settings, choosing <strong>Reset local progress</strong> and
+          confirming the action. Read the full{" "}
+          <a href="/account-deletion">data deletion instructions</a>.
         </p>
       </section>
 
@@ -73,9 +72,8 @@ export default function PrivacyPolicyPage() {
         <p>
           <strong>Restore Purchases</strong> can restore an eligible Premium
           entitlement associated with the same Apple ID. It does not restore
-          reading history, bookmarks, achievements, campaign decisions or other
-          Chronicle progress stored locally on a previous installation or
-          device.
+          reading history, saved items, Series progress or other preferences
+          stored locally on a previous installation or device.
         </p>
         <p>
           Apple and RevenueCat may retain transaction and entitlement records
@@ -99,9 +97,9 @@ export default function PrivacyPolicyPage() {
       <section>
         <h2>6. Analytics and advertising</h2>
         <p>
-          The released version of England 871 does not send in-app analytics or
-          Meta App Events to Chronicle Atlas or an advertising provider. We do
-          not use the app to serve personalised advertising.
+          England 871 does not send in-app analytics or Meta App Events to
+          Chronicle Atlas or an advertising provider. We do not use the app to
+          serve personalised advertising.
         </p>
       </section>
 

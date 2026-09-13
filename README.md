@@ -100,14 +100,25 @@ individually; update the master geometry and rebuild them together.
 
 Source Serif 4 is used for editorial headings and the live wordmark. Its SIL
 Open Font License is retained at `public/fonts/SOURCE-SERIF-4-LICENSE.txt`.
-The product screenshots and labelled artistic reconstructions are approved
-England 871 v1.2 assets. The website preserves their native proportions and
-serves them through Next.js image optimisation.
+The product screenshots are genuine 1320 × 2868 iPhone captures. The website
+preserves their native proportions, keeps their native status bars intact and
+serves them through Next.js image optimisation. Labelled artistic
+reconstructions remain identified as such in the app and on the website.
 
 ## Current product facts
 
 - England 871 covers medieval England from 871 to 1399.
-- The current public release is version 1.2.
-- The app is free to download; optional Premium is £19.99 per year in the UK.
+- The app uses three main tabs: Today, Explore and Saved.
+- People, Stories & Series, Timeline and Map are destinations within Explore.
+- The app is free to download; the next Premium offer is £1.99 per month or
+  £9.99 per year in the UK, with the same Premium access on both plans.
 - App Store purchases and subscriptions are completed in the iPhone app.
 - The app has no Chronicle Atlas account; reading progress is stored locally.
+
+## Release gate for this refresh
+
+The redesigned app experience and new Premium prices must be published on the
+UK App Store before this branch is merged into the production branch. Confirm
+that the listing shows both £1.99 monthly and £9.99 annual products, then deploy
+the website and screenshots together. Until that verification succeeds, the
+existing production site must continue to show the currently available offer.

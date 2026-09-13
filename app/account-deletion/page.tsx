@@ -27,8 +27,8 @@ export default function AccountDeletionPage() {
                 <div>
                   <h2>Open Settings</h2>
                   <p>
-                    In England 871, open <strong>My Chronicle</strong>, then
-                    select <strong>Settings</strong>.
+                    In England 871, open <strong>Settings</strong> from the
+                    Today screen.
                   </p>
                 </div>
               </li>
@@ -37,8 +37,7 @@ export default function AccountDeletionPage() {
                 <div>
                   <h2>Choose the reset control</h2>
                   <p>
-                    Under <strong>Your Chronicle</strong>, choose{" "}
-                    <strong>Reset local progress</strong>.
+                    In Settings, choose <strong>Reset local progress</strong>.
                   </p>
                 </div>
               </li>
@@ -59,10 +58,8 @@ export default function AccountDeletionPage() {
           <aside className="data-panel">
             <p className="eyebrow eyebrow-gold">What the reset removes</p>
             <ul>
-              <li>Bookmarks and recently viewed items</li>
-              <li>Reading and course progress</li>
-              <li>Campaign decisions and quiz results</li>
-              <li>Achievements and rewards</li>
+              <li>Saved and recently viewed items</li>
+              <li>Reading and Series progress</li>
               <li>Reminder choices and local preferences</li>
             </ul>
             <p>

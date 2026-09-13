@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./BrandLogo";
 
 const navigation = [
+  { href: "/#tour", label: "Inside the app" },
   { href: "/#sample", label: "Try a Chronicle" },
-  { href: "/#royal-relationships", label: "Royal families" },
   { href: "/england-871", label: "England 871" },
   { href: "/support", label: "Support" },
 ];

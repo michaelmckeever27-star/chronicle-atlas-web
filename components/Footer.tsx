@@ -2,8 +2,8 @@ import Link from "next/link";
 import { BrandLogo } from "./BrandLogo";
 
 const productLinks = [
+  { href: "/#tour", label: "Inside the app" },
   { href: "/#sample", label: "Try a Chronicle" },
-  { href: "/#royal-relationships", label: "Royal families" },
   { href: "/england-871", label: "England 871" },
 ];
 

@@ -5,59 +5,54 @@ import { IPhoneMockup } from "./IPhoneMockup";
 
 const tourItems = [
   {
-    id: "today",
-    label: "Today",
-    image: "/screenshots/today.png",
-    alt: "England 871 Today screen featuring a complete Daily Chronicle",
-    eyebrow: "A story worth opening",
-    title: "Today’s Chronicle",
-    text: "Begin with one complete, visual story chosen from the archive. Read six concise cards, save your place and follow the next connection.",
-    background: "#3046c5",
+    id: "reader",
+    label: "Reader",
+    image: "/screenshots/england-871-reader.png",
+    alt: "England 871 Chronicle reader showing an illustrated story about Eleanor of Aquitaine",
+    eyebrow: "Illustrated Chronicles",
+    title: "Discover history, one story at a time.",
+    text: "Read concise, illustrated Chronicle Cards with clear narrative, source notes and links into the wider story.",
   },
   {
-    id: "royals",
-    label: "Royals",
-    image: "/screenshots/royals.png",
-    alt: "England 871 Royals screen showing three connected royal family series",
-    eyebrow: "Kinship, rivalry, power",
-    title: "Royal families",
-    text: "Follow three connected series through marriage, inheritance and contested succession. Alfred’s complete six-episode starter series is free.",
-    background: "#3046c5",
+    id: "people",
+    label: "People",
+    image: "/screenshots/england-871-people.png",
+    alt: "England 871 People directory with Alfred the Great, Æthelflæd and other historical figures",
+    eyebrow: "Lives in context",
+    title: "Meet the people behind the history.",
+    text: "Browse people by birth year and discover rulers, nobles, commanders and influential women across medieval England.",
   },
   {
-    id: "timeline",
-    label: "Timeline",
-    image: "/screenshots/timeline.png",
-    alt: "England 871 timeline covering events from 871 to 1399",
-    eyebrow: "Five centuries connected",
-    title: "Timeline",
-    text: "Move from Alfred’s accession to Richard II’s deposition, filtering 159 events by era and theme without losing the wider sequence.",
-    background: "#17223e",
+    id: "series",
+    label: "Series",
+    image: "/screenshots/england-871-series.png",
+    alt: "England 871 Stories and Series screen showing connected historical reading paths",
+    eyebrow: "Connected reading",
+    title: "Follow stories across generations.",
+    text: "Series bring related Chronicles together, from Alfred and his family to households, work and long-term change.",
   },
   {
     id: "map",
     label: "Map",
-    image: "/screenshots/map.png",
-    alt: "England 871 map showing medieval places and connected stories",
+    image: "/screenshots/england-871-map.png",
+    alt: "England 871 interactive map with Northumbria selected",
     eyebrow: "Places and power",
-    title: "Map",
-    text: "Find the places behind the stories, filter by era and move directly into the people, conflicts and Chronicles connected to each location.",
-    background: "#071525",
+    title: "Explore where history happened.",
+    text: "Move across the map, change era and open the people and stories connected to each place.",
   },
   {
-    id: "explore",
-    label: "Explore",
-    image: "/screenshots/explore.png",
-    alt: "England 871 Explore screen with courses, search and royal stories",
-    eyebrow: "Your route through",
-    title: "Explore",
-    text: "Search the archive, continue where you left off, open guided courses and browse topics from law and belief to work and ordinary life.",
-    background: "#17223e",
+    id: "timeline",
+    label: "Timeline",
+    image: "/screenshots/england-871-timeline.png",
+    alt: "England 871 timeline showing dated entries for the Battle of Ashdown and Alfred becoming king",
+    eyebrow: "871–1399 in sequence",
+    title: "Put events in context.",
+    text: "Browse dated events in chronological order and filter by era without losing sight of the wider sequence.",
   },
 ];
 
 export function AppTour({ compact = false }: { compact?: boolean }) {
-  const [selectedId, setSelectedId] = useState("today");
+  const [selectedId, setSelectedId] = useState("reader");
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const selected = tourItems.find((item) => item.id === selectedId) ?? tourItems[0];
 
@@ -69,7 +64,7 @@ export function AppTour({ compact = false }: { compact?: boolean }) {
 
   return (
     <div className={`app-tour${compact ? " app-tour-compact" : ""}`}>
-      <div className="app-tour-tabs" role="tablist" aria-label="Explore England 871">
+      <div className="app-tour-tabs" role="tablist" aria-label="Inside England 871">
         {tourItems.map((item, index) => (
           <button
             aria-controls="app-tour-panel"
@@ -117,11 +112,10 @@ export function AppTour({ compact = false }: { compact?: boolean }) {
             alt={selected.alt}
             className="app-tour-phone"
             key={selected.id}
-            screenBackground={selected.background}
+            screenBackground="#fff8e6"
             sizes="(max-width: 699px) 260px, 310px"
             src={selected.image}
-            statusBarBackground={selected.background}
-            statusBarTheme="dark"
+            screenshotHasStatusBar
           />
         </div>
         <div className="app-tour-copy" aria-live="polite">

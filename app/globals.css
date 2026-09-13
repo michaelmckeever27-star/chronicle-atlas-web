@@ -730,6 +730,59 @@ h3 {
   --device-scale: 16.25rem;
 }
 
+/* Benefits */
+.benefits-section {
+  background: var(--paper);
+}
+
+.benefits-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.feature-card {
+  min-width: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-card-top {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.feature-card-top .eyebrow {
+  margin: 0;
+}
+
+.feature-symbol {
+  display: grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--royal);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 850;
+}
+
+.feature-card h3 {
+  max-width: 14ch;
+  margin-bottom: 1rem;
+}
+
+.feature-card > p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
 /* Chronicle sample */
 .sample-section,
 .tour-section,
@@ -1231,6 +1284,82 @@ h3 {
   color: var(--ivory);
 }
 
+.premium-equal-access {
+  margin-bottom: 1.25rem;
+  color: rgba(255, 248, 231, 0.78);
+  font-weight: 700;
+}
+
+.premium-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.premium-option {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid rgba(255, 248, 231, 0.24);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.premium-option > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.premium-option strong,
+.premium-option b {
+  color: var(--ivory);
+}
+
+.premium-option strong {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
+.premium-option span,
+.premium-option b small {
+  color: rgba(255, 248, 231, 0.68);
+  font-size: 0.72rem;
+}
+
+.premium-option b {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.premium-option-annual {
+  border-color: var(--gold);
+  background: rgba(246, 196, 83, 0.1);
+}
+
+.premium-option .premium-saving-badge {
+  width: max-content;
+  padding: 0.18rem 0.48rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--midnight);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.premium-saving-copy {
+  margin: 0.85rem 0 0;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
 .price-line {
   display: flex;
   gap: 0.75rem;
@@ -1431,8 +1560,9 @@ h3 {
 }
 
 .scope-grid strong {
+  overflow-wrap: anywhere;
   font-family: var(--serif);
-  font-size: 2.4rem;
+  font-size: clamp(1.25rem, 3.4vw, 2.4rem);
   font-weight: 600;
   line-height: 1;
 }
@@ -2039,6 +2169,10 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .benefits-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .company-note {
     grid-template-columns: 9rem 1fr;
   }
@@ -2287,6 +2421,16 @@ h3 {
 
   .royal-graph {
     grid-template-columns: 1fr;
+  }
+
+  .app-tour-tabs {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .app-tour-tabs button {
+    min-width: 5.25rem;
+    flex: 1 1 calc(33.333% - 0.5rem);
   }
 }
 

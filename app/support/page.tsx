@@ -19,7 +19,7 @@ const topics = [
   {
     number: "02",
     title: "Subscription help",
-    text: "Questions about Premium access, annual billing or subscription status.",
+    text: "Questions about Premium access, monthly or annual billing, or subscription status.",
     subject: "Subscription help",
   },
   {
@@ -92,8 +92,8 @@ export default function SupportPage() {
             <h2>Billing is managed by Apple.</h2>
           </div>
           <p>
-            You can view, change or cancel an App Store subscription in iPhone
-            Settings under your Apple ID. If access is missing after purchase,
+            You can view, change or cancel an App Store subscription in your
+            Apple account settings. If access is missing after purchase,
             open England 871 and choose <strong>Restore Purchases</strong>.
             This restores eligible Premium access, not locally stored Chronicle
             progress.

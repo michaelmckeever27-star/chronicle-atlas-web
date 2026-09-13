@@ -53,9 +53,9 @@ const ogSvg = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="2400" 
   </g>
   <g transform="translate(135 116) scale(2.15)">${symbolMarkup("#F6C453")}</g>
   <text x="430" y="292" fill="#FFF8E7" font-family="Georgia, serif" font-size="124" font-weight="700">Chronicle Atlas</text>
-  <text x="140" y="645" fill="#FFF8E7" font-family="Georgia, serif" font-size="158" font-weight="700">Meet the families who</text>
-  <text x="140" y="815" fill="#FFF8E7" font-family="Georgia, serif" font-size="158" font-weight="700">fought for England’s crown.</text>
-  <text x="144" y="988" fill="#FFF8E7" font-family="Arial, sans-serif" font-size="58">England 871 · Medieval history for iPhone · 871–1399</text>
+  <text x="140" y="645" fill="#FFF8E7" font-family="Georgia, serif" font-size="158" font-weight="700">Step inside</text>
+  <text x="140" y="815" fill="#FFF8E7" font-family="Georgia, serif" font-size="158" font-weight="700">medieval England.</text>
+  <text x="144" y="988" fill="#FFF8E7" font-family="Arial, sans-serif" font-size="58">People, places and stories · England 871 · 871–1399</text>
   <rect x="140" y="1075" width="560" height="8" fill="#F6C453"/>
 </svg>`);
 await sharp(ogSvg).png().toFile(path.join(root, "public", "og.png"));
