@@ -110,15 +110,14 @@ reconstructions remain identified as such in the app and on the website.
 - England 871 covers medieval England from 871 to 1399.
 - The app uses three main tabs: Today, Explore and Saved.
 - People, Stories & Series, Timeline and Map are destinations within Explore.
-- The app is free to download; the next Premium offer is £1.99 per month or
+- The app is free to download; Premium is £1.99 per month or
   £9.99 per year in the UK, with the same Premium access on both plans.
 - App Store purchases and subscriptions are completed in the iPhone app.
 - The app has no Chronicle Atlas account; reading progress is stored locally.
 
-## Release gate for this refresh
+## Release verification
 
-The redesigned app experience and new Premium prices must be published on the
-UK App Store before this branch is merged into the production branch. Confirm
-that the listing shows both £1.99 monthly and £9.99 annual products, then deploy
-the website and screenshots together. Until that verification succeeds, the
-existing production site must continue to show the currently available offer.
+On 16 September 2026, the UK App Store listing showed the updated app and both
+£1.99 monthly and £9.99 annual Premium products. The matching website and
+screenshots were then deployed to `chronicleatlas.app` through the production
+branch. Recheck App Store pricing before changing subscription copy in future.
