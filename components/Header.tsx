@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./BrandLogo";
+import { ENGLAND_871_APP_STORE_URL } from "@/lib/links";
 
 const navigation = [
   { href: "/#tour", label: "Inside the app" },
@@ -14,12 +15,16 @@ const navigation = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const firstMobileLink = useRef<HTMLAnchorElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     firstMobileLink.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButton.current?.focus();
+      }
     };
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
@@ -29,7 +34,7 @@ export function Header() {
     <header className="site-header">
       <div className="site-container header-inner">
         <Link className="brand" href="/" aria-label="Chronicle Atlas home">
-          <BrandLogo />
+          <BrandLogo variant="light" />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -38,12 +43,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <a className="nav-download" href="https://apps.apple.com/gb/app/england-871/id6791539102">
+          <a className="nav-download" href={ENGLAND_871_APP_STORE_URL}>
             Download
           </a>
         </nav>
 
         <button
+          ref={menuButton}
           aria-controls="mobile-navigation"
           aria-expanded={open}
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
@@ -71,7 +77,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <a href="https://apps.apple.com/gb/app/england-871/id6791539102">
+          <a href={ENGLAND_871_APP_STORE_URL}>
             Download for iPhone
           </a>
         </div>

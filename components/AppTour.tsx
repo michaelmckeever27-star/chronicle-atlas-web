@@ -1,132 +1,83 @@
-"use client";
+import { MarketingScreenshot } from "./MarketingScreenshot";
+import type { ScreenshotName } from "@/lib/screenshots";
 
-import { useRef, useState } from "react";
-import { IPhoneMockup } from "./IPhoneMockup";
-
-const tourItems = [
+const features: { image: ScreenshotName; label: string; title: string; text: string; note: string }[] = [
   {
-    id: "reader",
-    label: "Reader",
-    image: "/screenshots/england-871-reader.png",
-    alt: "England 871 Chronicle reader showing an illustrated story about Eleanor of Aquitaine",
-    eyebrow: "Illustrated Chronicles",
-    title: "Discover history, one story at a time.",
-    text: "Read concise, illustrated Chronicle Cards with clear narrative, source notes and links into the wider story.",
+    image: "reader",
+    label: "Short illustrated stories",
+    title: "A little history. A few minutes.",
+    text: "Read one card at a time. Each Chronicle turns a historical moment into a short, connected story, with room to pause and pick up where you left off.",
+    note: "Source notes and image details help you look beyond the story.",
   },
   {
-    id: "people",
-    label: "People",
-    image: "/screenshots/england-871-people.png",
-    alt: "England 871 People directory with Alfred the Great, Æthelflæd and other historical figures",
-    eyebrow: "Lives in context",
-    title: "Meet the people behind the history.",
-    text: "Browse people by birth year and discover rulers, nobles, commanders and influential women across medieval England.",
+    image: "map",
+    label: "An interactive map",
+    title: "Put history on the map.",
+    text: "Find the places behind the stories. Select a town, royal centre or other historical location, then follow its connections to the people and events around it.",
+    note: "Explore places across medieval England, 871–1399.",
   },
   {
-    id: "series",
-    label: "Series",
-    image: "/screenshots/england-871-series.png",
-    alt: "England 871 Stories and Series screen showing connected historical reading paths",
-    eyebrow: "Connected reading",
-    title: "Follow stories across generations.",
-    text: "Series bring related Chronicles together, from Alfred and his family to households, work and long-term change.",
+    image: "timeline",
+    label: "Five centuries, connected",
+    title: "See how the story unfolds.",
+    text: "From Alfred the Great to Richard II, connect the turning points in order. Search dated events or choose an era to understand what came before—and what followed.",
+    note: "A timeline of England from 871 to 1399.",
   },
   {
-    id: "map",
-    label: "Map",
-    image: "/screenshots/england-871-map.png",
-    alt: "England 871 interactive map with Northumbria selected",
-    eyebrow: "Places and power",
-    title: "Explore where history happened.",
-    text: "Move across the map, change era and open the people and stories connected to each place.",
-  },
-  {
-    id: "timeline",
-    label: "Timeline",
-    image: "/screenshots/england-871-timeline.png",
-    alt: "England 871 timeline showing dated entries for the Battle of Ashdown and Alfred becoming king",
-    eyebrow: "871–1399 in sequence",
-    title: "Put events in context.",
-    text: "Browse dated events in chronological order and filter by era without losing sight of the wider sequence.",
+    image: "people",
+    label: "Historical lives",
+    title: "Meet the people. Know their stories.",
+    text: "Explore rulers, nobles, commanders and influential women. Follow lives in context, with dates, roles and links into the wider history.",
+    note: "Historical depictions are not a claim of accurate likeness.",
   },
 ];
 
-export function AppTour({ compact = false }: { compact?: boolean }) {
-  const [selectedId, setSelectedId] = useState("reader");
-  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const selected = tourItems.find((item) => item.id === selectedId) ?? tourItems[0];
-
-  const selectTab = (index: number) => {
-    const nextIndex = (index + tourItems.length) % tourItems.length;
-    setSelectedId(tourItems[nextIndex].id);
-    tabRefs.current[nextIndex]?.focus();
-  };
-
+export function AppTour() {
   return (
-    <div className={`app-tour${compact ? " app-tour-compact" : ""}`}>
-      <div className="app-tour-tabs" role="tablist" aria-label="Inside England 871">
-        {tourItems.map((item, index) => (
-          <button
-            aria-controls="app-tour-panel"
-            aria-selected={item.id === selectedId}
-            id={`app-tour-${item.id}`}
-            key={item.id}
-            onClick={() => setSelectedId(item.id)}
-            onKeyDown={(event) => {
-              if (event.key === "ArrowRight") {
-                event.preventDefault();
-                selectTab(index + 1);
-              }
-              if (event.key === "ArrowLeft") {
-                event.preventDefault();
-                selectTab(index - 1);
-              }
-              if (event.key === "Home") {
-                event.preventDefault();
-                selectTab(0);
-              }
-              if (event.key === "End") {
-                event.preventDefault();
-                selectTab(tourItems.length - 1);
-              }
-            }}
-            ref={(node) => {
-              tabRefs.current[index] = node;
-            }}
-            role="tab"
-            tabIndex={item.id === selectedId ? 0 : -1}
-            type="button"
-          >
-            {item.label}
-          </button>
+    <>
+      <div className="feature-stories">
+        {features.map((feature, index) => (
+          <section className={`feature-story${index % 2 ? " feature-story-reverse" : ""}${index === 0 ? " feature-story-blue" : ""}`} key={feature.image}>
+            <div className="site-container feature-story-inner">
+              <div className="feature-story-copy">
+                <p className="eyebrow">{feature.label}</p>
+                <h2>{feature.title}</h2>
+                <p>{feature.text}</p>
+                <p className="feature-note">{feature.note}</p>
+              </div>
+              <MarketingScreenshot name={feature.image} />
+            </div>
+          </section>
         ))}
       </div>
-      <div
-        aria-labelledby={`app-tour-${selected.id}`}
-        className="app-tour-panel"
-        id="app-tour-panel"
-        role="tabpanel"
-      >
-        <div className="app-tour-phone-stage">
-          <IPhoneMockup
-            alt={selected.alt}
-            className="app-tour-phone"
-            key={selected.id}
-            screenBackground="#fff8e6"
-            sizes="(max-width: 699px) 260px, 310px"
-            src={selected.image}
-            screenshotHasStatusBar
-          />
+      <section className="section discovery-section">
+        <div className="site-container">
+          <div className="section-heading-row">
+            <div>
+              <p className="eyebrow">There is more than one way in</p>
+              <h2>Follow your curiosity.</h2>
+            </div>
+            <p>Choose a story, follow a Series or explore a subject. Everyday life, women and family belong here alongside the history of power.</p>
+          </div>
+          <div className="discovery-grid">
+            <article>
+              <div className="discovery-copy">
+                <h3>Find your next story.</h3>
+                <p>Browse 80 stories, from early kingdoms onwards. Search the library or follow connected reading paths in Series.</p>
+              </div>
+              <MarketingScreenshot name="library" />
+            </article>
+            <article>
+              <div className="discovery-copy">
+                <h3>Choose your way into the past.</h3>
+                <p>Explore brings stories, people, the timeline and map together. Start with a subject that interests you.</p>
+              </div>
+              <MarketingScreenshot name="explore" />
+            </article>
+          </div>
+          <p className="section-footnote">Screens shown from England 871. Some stories require Premium.</p>
         </div>
-        <div className="app-tour-copy" aria-live="polite">
-          <p className="eyebrow">{selected.eyebrow}</p>
-          <h3>{selected.title}</h3>
-          <p>{selected.text}</p>
-          <span className="tour-counter">
-            {String(tourItems.findIndex((item) => item.id === selected.id) + 1).padStart(2, "0")} / {String(tourItems.length).padStart(2, "0")}
-          </span>
-        </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

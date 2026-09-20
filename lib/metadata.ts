@@ -31,7 +31,7 @@ export function createPageMetadata({
           url: "/og.png",
           width: 2400,
           height: 1260,
-          alt: "Chronicle Atlas — step inside medieval England with England 871.",
+          alt: "England 871 by Chronicle Atlas — Medieval England. Made fascinating. Explore 871–1399.",
         },
       ],
     },

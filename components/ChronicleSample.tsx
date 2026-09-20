@@ -144,7 +144,6 @@ export function ChronicleSample() {
             alt={card.alt}
             fill
             key={card.image}
-            priority={index === 0}
             sizes="(max-width: 839px) 100vw, 50vw"
             src={card.image}
           />

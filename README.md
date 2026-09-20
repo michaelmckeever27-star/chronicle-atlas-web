@@ -39,6 +39,12 @@ npm run build
 npm run start
 ```
 
+With the server running, use a second terminal for route, redirect and image checks:
+
+```bash
+npm run check:site -- http://127.0.0.1:3000
+```
+
 ## Deploy to the existing Vercel site
 
 The production site is already connected to
@@ -98,12 +104,45 @@ Generated files are written to `public/brand`, `app/icon.png`,
 `app/apple-icon.png` and `public/og.png`. Do not edit generated variants
 individually; update the master geometry and rebuild them together.
 
-Source Serif 4 is used for editorial headings and the live wordmark. Its SIL
-Open Font License is retained at `public/fonts/SOURCE-SERIF-4-LICENSE.txt`.
-The product screenshots are genuine 1320 × 2868 iPhone captures. The website
-preserves their native proportions, keeps their native status bars intact and
-serves them through Next.js image optimisation. Labelled artistic
-reconstructions remain identified as such in the app and on the website.
+The live site uses Fredoka Medium (500) for headings and the wordmark, with
+Nunito Sans (400–800) for body text and controls. Latin WOFF2 subsets are
+self-hosted and loaded with `next/font/local`; no runtime font service is used.
+Their SIL Open Font Licenses are retained beside the font files. The TTF files
+are used only by the social-image build script, not downloaded by site visitors.
+Legacy Source Serif files and exported logo variants are retained for reference.
+
+Shared colours and spacing are defined in `app/globals.css`. The approved
+Atlas Seal geometry is unchanged. Regenerate the current social preview with
+`npm run social:build` (also called by `brand:build`). Its URL and 2400 × 1260
+dimensions are unchanged.
+
+### App Store panels
+
+All seven supplied 1320 × 2868 marketing PNGs are retained in
+`public/screenshots/app-store/originals/`. Each already contains its headline,
+iPhone frame and app screen: never add another device frame or crop the panel.
+Generate full-resolution WebP derivatives with:
+
+```bash
+npm run screenshots:build
+```
+
+`lib/screenshots.ts` holds their paths and alt text. `MarketingScreenshot` uses
+Next.js responsive image optimisation, explicit dimensions, a priority hero
+image, lazy below-fold images and full-size links. `AppTour` presents visible
+feature sections, not a carousel. Older screenshot paths remain available.
+The 80-story count is supported by the supplied Story Library panel; recheck
+it when replacing the panels. Labelled artistic reconstructions in the website
+Chronicle sample retain their evidence and source notes.
+
+### September 2026 visual refresh
+
+The visual refresh was reviewed locally on `codex/england-871-visual-refresh`
+and approved for production on 20 September 2026. Validation details are in
+`docs/visual-refresh-review.md`. Review future changes with `npm run build`
+then `npm run start`, or use `npm run dev` while editing. Check `/`,
+`/england-871`, `/get-app`, support and legal routes at mobile and desktop
+widths before releasing through the existing `main` → Vercel workflow.
 
 ## Current product facts
 

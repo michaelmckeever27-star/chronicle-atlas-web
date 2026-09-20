@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Publisher of England 871, an immersive guide to medieval England from 871 to 1399.",
     start_url: "/",
     display: "standalone",
-    background_color: "#FFF8E7",
-    theme_color: "#3046C5",
+    background_color: "#F2F4FA",
+    theme_color: "#3648DB",
     icons: [
       {
         src: "/brand/atlas-seal-icon.png",

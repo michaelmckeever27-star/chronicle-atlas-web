@@ -1,8 +1,24 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteUrl } from "@/lib/metadata";
 import "./globals.css";
+
+const fredoka = localFont({
+  src: "../public/fonts/fredoka/fredoka-medium-latin.woff2",
+  weight: "500",
+  style: "normal",
+  variable: "--font-heading",
+  display: "swap",
+});
+const nunitoSans = localFont({
+  src: "../public/fonts/nunito-sans/nunito-sans-latin.woff2",
+  weight: "400 800",
+  style: "normal",
+  variable: "--font-body",
+  display: "swap",
+});
 
 const title = "Chronicle Atlas | England 871 for iPhone";
 const description =
@@ -41,7 +57,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 2400,
         height: 1260,
-        alt: "Chronicle Atlas — step inside medieval England with England 871.",
+        alt: "England 871 by Chronicle Atlas — Medieval England. Made fascinating. Explore 871–1399.",
       },
     ],
   },
@@ -69,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB">
+    <html lang="en-GB" className={`${fredoka.variable} ${nunitoSans.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
