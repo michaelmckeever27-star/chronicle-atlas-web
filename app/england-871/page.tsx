@@ -1,11 +1,11 @@
-import Image from "next/image";
+import { AppIcon } from "@/components/AppIcon";
 import { AppStoreButton } from "@/components/AppStoreButton";
 import { AppTour } from "@/components/AppTour";
 import { ButtonLink } from "@/components/ButtonLink";
 import { MarketingScreenshot } from "@/components/MarketingScreenshot";
 import { PricingPanel } from "@/components/PricingPanel";
 import { ENGLAND_871_APP_STORE_URL } from "@/lib/links";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata, siteUrl } from "@/lib/metadata";
 
 const england871Description =
   "England 871 is an immersive iPhone history app covering medieval England from 871 to 1399 through illustrated Chronicles, Series, people, a timeline and an interactive map.";
@@ -23,6 +23,7 @@ const softwareApplicationSchema = {
   applicationCategory: "EducationalApplication",
   operatingSystem: "iOS",
   url: ENGLAND_871_APP_STORE_URL,
+  image: new URL("/brand/england-871-app-icon.png", siteUrl).toString(),
   description: england871Description,
   offers: {
     "@type": "Offer",
@@ -39,7 +40,7 @@ export default function England871Page() {
         <div className="site-container home-hero-grid">
           <div className="home-hero-copy">
             <div className="app-identity">
-              <Image src="/england-871-app-icon.png" alt="England 871 app icon" width={64} height={64} />
+              <AppIcon priority />
               <div><strong>England 871</strong><span>By Chronicle Atlas</span></div>
             </div>
             <p className="eyebrow">Medieval England · 871–1399</p>
@@ -96,7 +97,7 @@ export default function England871Page() {
 
       <section className="section final-cta-section" id="download">
         <div className="site-container final-cta">
-          <div><p className="eyebrow">England 871 · for iPhone</p><h2>From Alfred the Great to Richard II.</h2><p>Explore England across 871–1399. Free to download.</p></div>
+          <div><div className="download-identity"><AppIcon decorative /><p className="eyebrow">England 871 · for iPhone</p></div><h2>From Alfred the Great to Richard II.</h2><p>Explore England across 871–1399. Free to download.</p></div>
           <AppStoreButton />
         </div>
       </section>

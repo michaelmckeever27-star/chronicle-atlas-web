@@ -1,51 +1,70 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import assert from "node:assert/strict";
+import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
 const root = process.cwd();
-const geometry = JSON.parse(
-  await readFile(path.join(root, "lib", "atlas-seal.json"), "utf8"),
-);
+const originals = path.join(root, "assets/brand/originals");
 const brandDir = path.join(root, "public", "brand");
 await mkdir(brandDir, { recursive: true });
 
-const symbolMarkup = (colour) => `
-  <path d="${geometry.ring}" fill="none" stroke="${colour}" stroke-width="8" stroke-linecap="butt"/>
-  <path d="${geometry.star}" fill="${colour}"/>
-  ${geometry.panels.map((d) => `<path d="${d}" fill="${colour}"/>`).join("\n  ")}`;
+// Deterministic crops/resizing only. Never redraw or remove the original alpha.
+const companyUpload = path.join(originals, "chronicle-atlas-upload.png");
+const appUpload = path.join(originals, "england-871-upload.jpeg");
+const { data, info } = await sharp(companyUpload).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+assert.equal(info.width, 1942, "Review the crop if the company artwork changes");
+assert.equal(info.height, 809);
 
-const symbolSvg = (colour) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${geometry.viewBox}">${symbolMarkup(colour)}</svg>`;
-
-const logoSvg = ({ mark, wordmark, monochrome = false }) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-label="Chronicle Atlas">
-  <g transform="translate(0 0)">${symbolMarkup(mark)}</g>
-  <text x="136" y="79" fill="${monochrome ? mark : wordmark}" font-family="Source Serif 4, Georgia, serif" font-size="61" font-weight="600" letter-spacing="-1.2">Chronicle Atlas</text>
-</svg>`;
-
-const assets = {
-  "atlas-seal-master.svg": symbolSvg("#000000"),
-  "atlas-seal-symbol-blue.svg": symbolSvg("#3046C5"),
-  "atlas-seal-symbol-gold.svg": symbolSvg("#F6C453"),
-  "atlas-seal-primary.svg": logoSvg({ mark: "#F6C453", wordmark: "#FFF8E7" }),
-  "atlas-seal-light.svg": logoSvg({ mark: "#3046C5", wordmark: "#3046C5" }),
-  "atlas-seal-monochrome.svg": logoSvg({ mark: "#17223E", wordmark: "#17223E", monochrome: true }),
-};
-
-for (const [name, svg] of Object.entries(assets)) {
-  await writeFile(path.join(brandDir, name), svg);
+function artworkBounds(rightLimit = info.width) {
+  let left = rightLimit, top = info.height, right = 0, bottom = 0;
+  for (let y = 0; y < info.height; y++) {
+    for (let x = 0; x < rightLimit; x++) {
+      // Ignore near-invisible specks when measuring, NOT when processing pixels.
+      // Extra margin retains the source's original soft edges.
+      if (data[(y * info.width + x) * 4 + 3] > 16) {
+        left = Math.min(left, x); top = Math.min(top, y);
+        right = Math.max(right, x); bottom = Math.max(bottom, y);
+      }
+    }
+  }
+  return { left: left - 8, top: top - 8, width: right - left + 17, height: bottom - top + 17 };
 }
 
-const iconSvg = (size) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 120 120">
-  <rect width="120" height="120" rx="25" fill="#3046C5"/>
-  <g transform="translate(7 7) scale(.88)">${symbolMarkup("#F6C453")}</g>
-</svg>`);
+const logoBounds = artworkBounds();
+const logo = await sharp(companyUpload).extract(logoBounds).png().toBuffer();
+await sharp(logo).png().toFile(path.join(brandDir, "chronicle-atlas-logo.png"));
+await sharp(logo).resize({ width: 800, withoutEnlargement: true })
+  .webp({ lossless: true }).toFile(path.join(brandDir, "chronicle-atlas-logo.webp"));
 
-await sharp(Buffer.from(symbolSvg("#F6C453"))).resize(1024, 1024).png().toFile(path.join(brandDir, "atlas-seal-gold.png"));
-await sharp(iconSvg(1024)).resize(1024, 1024).png().toFile(path.join(brandDir, "atlas-seal-icon.png"));
-await sharp(iconSvg(32)).resize(32, 32).png().toFile(path.join(brandDir, "atlas-seal-icon-32.png"));
-await sharp(iconSvg(16)).resize(16, 16).png().toFile(path.join(brandDir, "atlas-seal-icon-16.png"));
-await sharp(iconSvg(512)).resize(512, 512).png().toFile(path.join(root, "app", "icon.png"));
-await sharp(iconSvg(180)).resize(180, 180).png().toFile(path.join(root, "app", "apple-icon.png"));
+// x=660 lies in the transparent gap between the CA monogram and lettering.
+const symbolBounds = artworkBounds(660);
+const symbol = await sharp(companyUpload).extract(symbolBounds).png().toBuffer();
+await sharp(symbol).png().toFile(path.join(brandDir, "chronicle-atlas-symbol.png"));
+for (const size of [16, 32, 180, 192, 512]) {
+  const padding = Math.max(1, Math.round(size * 0.07));
+  const inset = size - padding * 2;
+  // A light canvas keeps the original cobalt visible even in dark browser UI.
+  const resized = await sharp(symbol).resize(inset, inset, { fit: "contain", background: "#ffffff" })
+    .flatten({ background: "#ffffff" }).png().toBuffer();
+  const icon = await sharp(resized).extend({ top: padding, bottom: padding, left: padding, right: padding, background: "#ffffff" })
+    .png().toBuffer();
+  await sharp(icon).toFile(path.join(brandDir, `chronicle-atlas-icon-${size}.png`));
+  if (size === 512) await sharp(icon).toFile(path.join(root, "app/icon.png"));
+  if (size === 180) await sharp(icon).toFile(path.join(root, "app/apple-icon.png"));
+}
+
+const appMetadata = await sharp(appUpload).metadata();
+assert.equal(appMetadata.width, 707, "Review padding if the app artwork changes");
+assert.equal(appMetadata.height, 699);
+assert.equal(appMetadata.hasAlpha, false);
+// Four copied edge rows above/below: no content crop, stretch or recolouring.
+const squareApp = await sharp(appUpload).extend({ top: 4, bottom: 4, left: 0, right: 0, extendWith: "copy" }).png().toBuffer();
+await sharp(squareApp).resize(512, 512).png().toFile(path.join(brandDir, "england-871-app-icon.png"));
+await sharp(squareApp).resize(256, 256).webp({ lossless: true }).toFile(path.join(brandDir, "england-871-app-icon.webp"));
+// Keep the older public URL working, serving the supplied artwork there too.
+await sharp(squareApp).resize(512, 512).png().toFile(path.join(root, "public/england-871-app-icon.png"));
 
 await import("./build-social-preview.mjs");
 
-console.log("Built Atlas Seal SVG, PNG, favicon, touch icon and social assets.");
+console.log("Built uploaded company/app artwork, CA favicons, touch icon and social preview.");
+console.log({ logoBounds, symbolBounds });

@@ -14,6 +14,14 @@ for (const route of routes) {
   assert.ok(html.includes(`rel="canonical" href="https://chronicleatlas.app${route === "/" ? "" : route}`), `${route}: canonical`);
   assert.match(html, /property="og:image"/, `${route}: Open Graph`);
   assert.ok(!html.includes("@chronicleatlas.com"), `${route}: current email domain`);
+  assert.ok(!html.includes("atlas-seal"), `${route}: no obsolete branding references`);
+  assert.ok(html.includes("chronicle-atlas-logo"), `${route}: uploaded company logo`);
+  assert.ok(html.includes('"logo":"https://chronicleatlas.app/brand/chronicle-atlas-logo.png"'), `${route}: company schema uses supplied logo`);
+  assert.ok(html.includes("/brand/chronicle-atlas-icon-16.png"), `${route}: CA favicon`);
+  assert.ok(html.includes('rel="apple-touch-icon" href="/brand/chronicle-atlas-icon-180.png"'), `${route}: Apple touch icon`);
+  if (route === "/england-871") {
+    assert.ok(html.includes('"image":"https://chronicleatlas.app/brand/england-871-app-icon.png"'), "Product schema uses app artwork");
+  }
   for (const match of html.matchAll(/href="(https:\/\/apps\.apple\.com\/[^"\s]+)"/g)) {
     assert.equal(match[1], destination, `${route}: App Store destination`);
   }
@@ -58,3 +66,16 @@ for (const file of (await readdir("public/screenshots")).filter((name) => name.e
   assert.equal((await fetch(new URL(`/screenshots/${file}`, base))).status, 200, file);
 }
 console.log("PASS metadata routes, legacy privacy alias and existing screenshot URLs");
+
+for (const route of [
+  "/brand/chronicle-atlas-logo.png", "/brand/chronicle-atlas-logo.webp",
+  "/brand/chronicle-atlas-symbol.png", "/brand/england-871-app-icon.png",
+  "/brand/england-871-app-icon.webp", "/england-871-app-icon.png",
+  ...[16, 32, 180, 192, 512].map((size) => `/brand/chronicle-atlas-icon-${size}.png`),
+  "/icon.png", "/apple-icon.png",
+]) {
+  assert.equal((await fetch(new URL(route, base))).status, 200, route);
+}
+const manifest = await (await fetch(new URL("/manifest.webmanifest", base))).json();
+assert.deepEqual(manifest.icons.map((icon) => icon.src), ["/brand/chronicle-atlas-icon-192.png", "/brand/chronicle-atlas-icon-512.png"]);
+console.log("PASS uploaded brand asset URLs, favicon/touch icons, product schema and manifest");

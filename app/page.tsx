@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppIcon } from "@/components/AppIcon";
 import { AppStoreButton } from "@/components/AppStoreButton";
 import { AppTour } from "@/components/AppTour";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -50,7 +50,7 @@ export default function Home() {
         <div className="site-container home-hero-grid">
           <div className="home-hero-copy">
             <div className="app-identity">
-              <Image src="/england-871-app-icon.png" alt="England 871 app icon" width={64} height={64} />
+              <AppIcon priority />
               <div><strong>England 871</strong><span>Medieval England · 871–1399</span></div>
             </div>
             <h1>Medieval England.<br /><span>Made fascinating.</span></h1>
@@ -131,7 +131,7 @@ export default function Home() {
       <section className="section final-cta-section">
         <div className="site-container final-cta">
           <div>
-            <p className="eyebrow">England 871 · for iPhone</p>
+            <div className="download-identity"><AppIcon decorative /><p className="eyebrow">England 871 · for iPhone</p></div>
             <h2>Your next story is waiting.</h2>
             <p>Explore England across 871–1399. Follow what fascinates you.</p>
           </div>

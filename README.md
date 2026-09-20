@@ -91,28 +91,47 @@ through the Next.js metadata APIs.
 
 ## Brand assets
 
-The approved Atlas Seal uses one path-and-viewBox source in
-`lib/atlas-seal.json`. The shared React logo and every exported asset use that
-same geometry. Rebuild the favicon, touch icon, Open Graph image, transparent
-PNG exports and SVG variants with:
+The company identity is the uploaded cobalt/yellow CA monogram and lettering;
+the separate England 871 app identity is the uploaded crown/871 artwork.
+Exact, unmodified uploads are retained in `assets/brand/originals/`.
+Rebuild their raster derivatives, favicons, touch icon and social preview with:
 
 ```bash
 npm run brand:build
 ```
 
 Generated files are written to `public/brand`, `app/icon.png`,
-`app/apple-icon.png` and `public/og.png`. Do not edit generated variants
-individually; update the master geometry and rebuild them together.
+`app/apple-icon.png` and `public/og.png`. `BrandLogo` uses the complete company
+lockup (no adjacent duplicate name); `AppIcon` uses only the England 871 icon.
+Both use lossless web derivatives with intrinsic dimensions and hashed static
+imports. Header/footer links retain their accessible homepage label.
 
-The live site uses Fredoka Medium (500) for headings and the wordmark, with
+The company PNG is transparent, not black-backed. Its empty outer padding is
+trimmed, preserving the artwork's alpha and soft edges; the CA symbol is cropped
+from the transparent gap before the lettering. The opaque 707 × 699 app JPEG
+receives four copied edge rows above and below before proportional resizing—
+no artwork is cropped, stretched or recoloured. The footer places the unchanged
+company logo on a white surface; favicons/touch icons also have white canvases
+so cobalt remains visible in dark browser chrome. The website is light-only.
+These are raster assets, not claimed vector recreations.
+
+Run `npm run check:brand` to verify source hashes, crop fidelity, dimensions and
+alpha, then `npm run check:site -- http://127.0.0.1:3000` against a running local
+build. Old Atlas Seal exports and geometry are retained only as unused legacy
+files; no current component, metadata or asset-generation script references
+them. The former `/england-871-app-icon.png` URL serves the new app artwork for
+backwards compatibility.
+
+The site uses Fredoka Medium (500) for headings, with
 Nunito Sans (400–800) for body text and controls. Latin WOFF2 subsets are
 self-hosted and loaded with `next/font/local`; no runtime font service is used.
 Their SIL Open Font Licenses are retained beside the font files. The TTF files
 are used only by the social-image build script, not downloaded by site visitors.
-Legacy Source Serif files and exported logo variants are retained for reference.
+Legacy Source Serif files are retained for reference. The company wordmark
+comes directly from the upload, not from a web font.
 
-Shared colours and spacing are defined in `app/globals.css`. The approved
-Atlas Seal geometry is unchanged. Regenerate the current social preview with
+Shared colours and spacing are defined in `app/globals.css`. Regenerate the
+current social preview with
 `npm run social:build` (also called by `brand:build`). Its URL and 2400 × 1260
 dimensions are unchanged.
 

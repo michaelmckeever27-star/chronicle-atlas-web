@@ -1,48 +1,29 @@
-import seal from "@/lib/atlas-seal.json";
+import Image from "next/image";
+import companyLogo from "@/public/brand/chronicle-atlas-logo.webp";
+import companySymbol from "@/public/brand/chronicle-atlas-symbol.png";
 
 type BrandLogoProps = {
-  variant?: "primary" | "light" | "monochrome";
   symbolOnly?: boolean;
   className?: string;
+  decorative?: boolean;
+  priority?: boolean;
 };
 
-export function AtlasSealSymbol({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={`atlas-seal-symbol ${className}`.trim()}
-      viewBox={seal.viewBox}
-      focusable="false"
-    >
-      <path
-        d={seal.ring}
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="butt"
-        strokeWidth="8"
-      />
-      <path d={seal.star} fill="currentColor" />
-      {seal.panels.map((path) => (
-        <path d={path} fill="currentColor" key={path} />
-      ))}
-    </svg>
-  );
-}
-
 export function BrandLogo({
-  variant = "primary",
   symbolOnly = false,
   className = "",
+  decorative = false,
+  priority = false,
 }: BrandLogoProps) {
   return (
-    <span
-      aria-hidden="true"
-      className={`brand-logo brand-logo-${variant}${
-        symbolOnly ? " brand-logo-symbol" : ""
-      } ${className}`.trim()}
-    >
-      <AtlasSealSymbol />
-      {!symbolOnly && <span className="brand-logo-wordmark">Chronicle Atlas</span>}
+    <span className={`brand-logo${symbolOnly ? " brand-logo-symbol" : ""} ${className}`.trim()}>
+      <Image
+        src={symbolOnly ? companySymbol : companyLogo}
+        alt={decorative ? "" : symbolOnly ? "Chronicle Atlas CA monogram" : "Chronicle Atlas"}
+        className={symbolOnly ? "company-symbol" : "company-logo"}
+        priority={priority}
+        unoptimized
+      />
     </span>
   );
 }

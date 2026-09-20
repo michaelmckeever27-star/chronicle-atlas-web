@@ -21,7 +21,7 @@ export function Footer() {
       <div className="site-container footer-grid">
         <div className="footer-brand">
           <Link className="brand" href="/" aria-label="Chronicle Atlas home">
-            <BrandLogo />
+            <BrandLogo decorative />
           </Link>
           <p>History, vividly told—one connected story at a time.</p>
         </div>

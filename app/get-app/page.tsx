@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppIcon } from "@/components/AppIcon";
 import Link from "next/link";
 import { AppStoreButton } from "@/components/AppStoreButton";
 import { createPageMetadata } from "@/lib/metadata";
@@ -15,14 +15,7 @@ export default function GetAppPage() {
     <section className="get-app-page">
       <div className="site-container get-app-inner">
         <div className="get-app-card">
-          <Image
-            alt="England 871 app icon with a crown and the number 871"
-            className="get-app-icon"
-            height={160}
-            priority
-            src="/england-871-app-icon.png"
-            width={160}
-          />
+          <AppIcon className="get-app-icon" priority />
           <p className="eyebrow">Available for iPhone</p>
           <h1>England 871</h1>
           <p className="get-app-description">

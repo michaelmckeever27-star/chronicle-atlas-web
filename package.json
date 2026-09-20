@@ -9,6 +9,7 @@
     "screenshots:build": "node scripts/build-screenshot-assets.mjs",
     "social:build": "node scripts/build-social-preview.mjs",
     "check:site": "node scripts/check-site.mjs",
+    "check:brand": "node scripts/check-brand-assets.mjs",
     "brand:build": "node scripts/build-brand-assets.mjs",
     "dev": "next dev",
     "build": "next build",

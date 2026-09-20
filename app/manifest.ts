@@ -12,8 +12,13 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#3648DB",
     icons: [
       {
-        src: "/brand/atlas-seal-icon.png",
-        sizes: "1024x1024",
+        src: "/brand/chronicle-atlas-icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/brand/chronicle-atlas-icon-512.png",
+        sizes: "512x512",
         type: "image/png",
       },
     ],

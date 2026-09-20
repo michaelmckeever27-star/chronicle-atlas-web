@@ -45,6 +45,13 @@ export const metadata: Metadata = {
   creator: "Chronicle Atlas Ltd",
   publisher: "Chronicle Atlas Ltd",
   formatDetection: { telephone: false },
+  icons: {
+    icon: [
+      { url: "/brand/chronicle-atlas-icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/brand/chronicle-atlas-icon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: { url: "/brand/chronicle-atlas-icon-180.png", sizes: "180x180", type: "image/png" },
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
@@ -76,7 +83,7 @@ const organisationSchema = {
   url: siteUrl.toString(),
   email: "hello@chronicleatlas.app",
   description,
-  logo: new URL("/brand/atlas-seal-icon.png", siteUrl).toString(),
+  logo: new URL("/brand/chronicle-atlas-logo.png", siteUrl).toString(),
 };
 
 export default function RootLayout({

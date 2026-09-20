@@ -16,8 +16,10 @@ const textLayer = async (text, size, colour, heading = false) => sharp({
 
 const panel = await sharp(path.join(root, "public/screenshots/app-store/01-medieval-england.webp"))
   .resize({ height: 1120 }).png().toBuffer();
-const icon = await sharp(path.join(root, "public/england-871-app-icon.png"))
+const icon = await sharp(path.join(root, "public/brand/england-871-app-icon.png"))
   .resize(116, 116).png().toBuffer();
+const companyLogo = await sharp(path.join(root, "public/brand/chronicle-atlas-logo.png"))
+  .resize({ width: 390 }).png().toBuffer();
 
 await sharp({ create: { width: 2400, height: 1260, channels: 4, background: "#F2F4FA" } })
   .composite([
@@ -26,7 +28,7 @@ await sharp({ create: { width: 2400, height: 1260, channels: 4, background: "#F2
     { input: await textLayer("Medieval England.", 138, "#19233D", true), left: 140, top: 405 },
     { input: await textLayer("Made fascinating.", 138, "#3648DB", true), left: 140, top: 575 },
     { input: await textLayer("Stories, people, places and time.\nExplore England across 871–1399.", 48, "#526078"), left: 145, top: 810 },
-    { input: await textLayer("Chronicle Atlas", 44, "#3648DB", true), left: 145, top: 1090 },
+    { input: companyLogo, left: 145, top: 1030 },
     { input: panel, left: 1730, top: 70 },
   ])
   .png().toFile(path.join(root, "public/og.png"));
