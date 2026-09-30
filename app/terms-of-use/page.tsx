@@ -14,14 +14,14 @@ export default function TermsOfUsePage() {
       eyebrow="Legal"
       title="Terms of Use"
       intro="The terms for using England 871, the Chronicle Atlas website and Premium content."
-      lastUpdated="13 September 2026"
+      lastUpdated="30 September 2026"
     >
       <section>
         <h2>1. About these terms</h2>
         <p>
           These terms form an agreement between you and Chronicle Atlas Ltd
           (“Chronicle Atlas”, “we”, “us” or “our”) when you access England 871,
-          our immersive history app covering medieval England from 871 to 1399,
+          our immersive history app covering medieval England from 871 to 1485,
           this website or another service that links to these terms. By using
           the service, you agree to these terms. If you do not agree, do not use
           the service.

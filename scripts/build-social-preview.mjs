@@ -14,20 +14,20 @@ const textLayer = async (text, size, colour, heading = false) => sharp({
   },
 }).png().toBuffer();
 
-const panel = await sharp(path.join(root, "public/screenshots/app-store/01-medieval-england.webp"))
+const panel = await sharp(path.join(root, "public/screenshots/v2/01-daily-history.webp"))
   .resize({ height: 1120 }).png().toBuffer();
 const icon = await sharp(path.join(root, "public/brand/england-871-app-icon.png"))
   .resize(116, 116).png().toBuffer();
 const companyLogo = await sharp(path.join(root, "public/brand/chronicle-atlas-logo.png"))
   .resize({ width: 390 }).png().toBuffer();
 
-await sharp({ create: { width: 2400, height: 1260, channels: 4, background: "#F2F4FA" } })
+await sharp({ create: { width: 2400, height: 1260, channels: 4, background: "#F3F4FB" } })
   .composite([
     { input: icon, left: 140, top: 140 },
     { input: await textLayer("England 871 · for iPhone", 44, "#19233D"), left: 290, top: 174 },
-    { input: await textLayer("Medieval England.", 138, "#19233D", true), left: 140, top: 405 },
-    { input: await textLayer("Made fascinating.", 138, "#3648DB", true), left: 140, top: 575 },
-    { input: await textLayer("Stories, people, places and time.\nExplore England across 871–1399.", 48, "#526078"), left: 145, top: 810 },
+    { input: await textLayer("A little history.", 138, "#1B2540", true), left: 140, top: 405 },
+    { input: await textLayer("Every day.", 138, "#3844E7", true), left: 140, top: 575 },
+    { input: await textLayer("Read. Listen. Explore.\nFrom Alfred to Bosworth · 871–1485.", 48, "#53627E"), left: 145, top: 810 },
     { input: companyLogo, left: 145, top: 1030 },
     { input: panel, left: 1730, top: 70 },
   ])

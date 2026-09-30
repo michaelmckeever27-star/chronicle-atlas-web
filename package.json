@@ -7,9 +7,11 @@
   },
   "scripts": {
     "screenshots:build": "node scripts/build-screenshot-assets.mjs",
+    "screenshots:v2": "node scripts/build-v2-assets.mjs",
     "social:build": "node scripts/build-social-preview.mjs",
     "check:site": "node scripts/check-site.mjs",
     "check:brand": "node scripts/check-brand-assets.mjs",
+    "check:motion": "node scripts/check-motion.mjs",
     "brand:build": "node scripts/build-brand-assets.mjs",
     "dev": "next dev",
     "build": "next build",

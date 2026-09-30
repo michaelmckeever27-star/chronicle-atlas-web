@@ -6,10 +6,9 @@ import { BrandLogo } from "./BrandLogo";
 import { ENGLAND_871_APP_STORE_URL } from "@/lib/links";
 
 const navigation = [
-  { href: "/#tour", label: "Inside the app" },
-  { href: "/#sample", label: "Try a Chronicle" },
-  { href: "/england-871", label: "England 871" },
-  { href: "/support", label: "Support" },
+  { href: "/#tour", label: "Explore the app" },
+  { href: "/#stories", label: "What’s inside" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -43,11 +42,12 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <a className="nav-download" href={ENGLAND_871_APP_STORE_URL}>
-            Download
+          <a className="nav-download" href={ENGLAND_871_APP_STORE_URL} data-download-placement="navigation">
+            Get the app <span aria-hidden="true">↗</span>
           </a>
         </nav>
 
+        <a className="mobile-download" href={ENGLAND_871_APP_STORE_URL} data-download-placement="navigation">Get app <span aria-hidden="true">↗</span></a>
         <button
           ref={menuButton}
           aria-controls="mobile-navigation"
@@ -77,7 +77,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <a href={ENGLAND_871_APP_STORE_URL}>
+          <a href={ENGLAND_871_APP_STORE_URL} data-download-placement="navigation">
             Download for iPhone
           </a>
         </div>

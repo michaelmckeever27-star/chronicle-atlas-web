@@ -4,11 +4,13 @@ import { AppTour } from "@/components/AppTour";
 import { ButtonLink } from "@/components/ButtonLink";
 import { MarketingScreenshot } from "@/components/MarketingScreenshot";
 import { PricingPanel } from "@/components/PricingPanel";
+import { DownloadSection } from "@/components/DownloadSection";
+import { MotionEnhancements } from "@/components/MotionEnhancements";
 import { ENGLAND_871_APP_STORE_URL } from "@/lib/links";
 import { createPageMetadata, siteUrl } from "@/lib/metadata";
 
 const england871Description =
-  "England 871 is an immersive iPhone history app covering medieval England from 871 to 1399 through illustrated Chronicles, Series, people, a timeline and an interactive map.";
+  "Explore medieval England from 871 to 1485 with England 871 for iPhone: illustrated stories, audio, historical people, an interactive map and a timeline.";
 
 export const metadata = createPageMetadata({
   title: "England 871 — medieval history for iPhone",
@@ -22,6 +24,7 @@ const softwareApplicationSchema = {
   name: "England 871",
   applicationCategory: "EducationalApplication",
   operatingSystem: "iOS",
+  softwareVersion: "2.0",
   url: ENGLAND_871_APP_STORE_URL,
   image: new URL("/brand/england-871-app-icon.png", siteUrl).toString(),
   description: england871Description,
@@ -36,27 +39,29 @@ const softwareApplicationSchema = {
 export default function England871Page() {
   return (
     <>
+      <MotionEnhancements />
       <section className="home-hero product-hero">
+        <div className="brand-ribbon ribbon-hero" aria-hidden="true" />
         <div className="site-container home-hero-grid">
           <div className="home-hero-copy">
             <div className="app-identity">
               <AppIcon priority />
               <div><strong>England 871</strong><span>By Chronicle Atlas</span></div>
             </div>
-            <p className="eyebrow">Medieval England · 871–1399</p>
+            <p className="eyebrow">Medieval England · 871–1485 · Version 2.0</p>
             <h1>A little history.<br /><span>A wider world.</span></h1>
             <p className="hero-intro">
               England 871 is an immersive history app covering medieval England
-              from 871 to 1399. Read short illustrated Chronicles, follow
+              from 871 to 1485. Read or listen to illustrated stories, follow
               connected Series and explore historical people, places and events.
             </p>
             <div className="hero-actions" id="app-store">
-              <AppStoreButton />
+              <AppStoreButton placement="hero" />
               <ButtonLink href="/#sample" variant="secondary">Try a Chronicle</ButtonLink>
             </div>
             <p className="availability-note">Made for iPhone · Free to download · Optional Premium</p>
           </div>
-          <MarketingScreenshot name="home" priority className="hero-marketing-panel" />
+          <MarketingScreenshot name="home" priority className="hero-marketing-panel" caption={false} />
         </div>
       </section>
 
@@ -95,12 +100,7 @@ export default function England871Page() {
         </div>
       </section>
 
-      <section className="section final-cta-section" id="download">
-        <div className="site-container final-cta">
-          <div><div className="download-identity"><AppIcon decorative /><p className="eyebrow">England 871 · for iPhone</p></div><h2>From Alfred the Great to Richard II.</h2><p>Explore England across 871–1399. Free to download.</p></div>
-          <AppStoreButton />
-        </div>
-      </section>
+      <div id="download"><DownloadSection /></div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
     </>
   );

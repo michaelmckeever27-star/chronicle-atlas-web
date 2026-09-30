@@ -1,3 +1,4 @@
+// UK App Store prices rechecked on 30 September 2026 with version 2.0 live.
 const monthlyPence = 199;
 const annualPence = 999;
 const annualComparisonPence = monthlyPence * 12;

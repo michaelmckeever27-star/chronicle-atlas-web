@@ -24,6 +24,7 @@ export function Footer() {
             <BrandLogo decorative />
           </Link>
           <p>History, vividly told—one connected story at a time.</p>
+          <a href="mailto:contact@chronicleatlas.app">contact@chronicleatlas.app</a>
         </div>
         <div>
           <p className="footer-heading">Explore</p>
@@ -49,7 +50,7 @@ export function Footer() {
           <p className="footer-heading">Chronicle Atlas Ltd</p>
           <p>
             Publisher of England 871, an immersive history app covering medieval
-            England from 871 to 1399.
+            England from 871 to 1485.
           </p>
         </div>
       </div>

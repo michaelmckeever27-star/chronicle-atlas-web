@@ -70,7 +70,7 @@ export default function ContactPage() {
               We create premium digital history experiences that combine careful
               scholarship, cinematic storytelling and intuitive interaction.
               England 871, covering medieval England from Alfred the Great to
-              Richard II, is our first release.
+              the Battle of Bosworth in 1485, is our first release.
             </p>
           </div>
         </div>

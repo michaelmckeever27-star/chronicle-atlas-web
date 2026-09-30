@@ -2,7 +2,7 @@
 
 Production-ready marketing and support website for Chronicle Atlas Ltd and its
 first iOS app. England 871 is an immersive history app covering medieval England
-from 871 to 1399. The site is built with Next.js App Router, TypeScript and plain
+from 871 to 1485. The site is built with Next.js App Router, TypeScript and plain
 CSS. It has no backend and uses no paid APIs at runtime.
 
 ## Requirements
@@ -35,6 +35,8 @@ origin, with no trailing slash. The production fallback is
 
 ```bash
 npm run lint
+npm run check:motion
+npx tsc --noEmit
 npm run build
 npm run start
 ```
@@ -137,21 +139,23 @@ dimensions are unchanged.
 
 ### App Store panels
 
-All seven supplied 1320 × 2868 marketing PNGs are retained in
-`public/screenshots/app-store/originals/`. Each already contains its headline,
+The seven current version 2.0 marketing PNGs are retained in
+`public/screenshots/v2/originals/`. Each already contains its headline,
 iPhone frame and app screen: never add another device frame or crop the panel.
 Generate full-resolution WebP derivatives with:
 
 ```bash
-npm run screenshots:build
+npm run screenshots:v2
 ```
 
 `lib/screenshots.ts` holds their paths and alt text. `MarketingScreenshot` uses
 Next.js responsive image optimisation, explicit dimensions, a priority hero
 image, lazy below-fold images and full-size links. `AppTour` presents visible
-feature sections, not a carousel. Older screenshot paths remain available.
-The 80-story count is supported by the supplied Story Library panel; recheck
-it when replacing the panels. Labelled artistic reconstructions in the website
+feature sections, with an optional desktop sticky preview. Older screenshot
+paths remain available in `public/screenshots/app-store/`; rebuild those older
+exports with `npm run screenshots:build`. The current 103-story count is supported
+by the supplied panels and the public version 2.0 listing; recheck it when
+replacing the panels. Labelled artistic reconstructions in the website
 Chronicle sample retain their evidence and source notes.
 
 ### September 2026 visual refresh
@@ -165,7 +169,9 @@ widths before releasing through the existing `main` → Vercel workflow.
 
 ## Current product facts
 
-- England 871 covers medieval England from 871 to 1399.
+- England 871 version 2.0 covers medieval England from 871 to 1485, ending at Bosworth.
+- The current collection has 103 stories, 162 historical figures and 192 timeline events.
+- Illustrated reading and audio narration are available, with daily streaks and continued reading.
 - The app uses three main tabs: Today, Explore and Saved.
 - People, Stories & Series, Timeline and Map are destinations within Explore.
 - The app is free to download; Premium is £1.99 per month or
@@ -174,6 +180,23 @@ widths before releasing through the existing `main` → Vercel workflow.
 - The app has no Chronicle Atlas account; reading progress is stored locally.
 
 ## Release verification
+
+On 30 September 2026 the public UK App Store listing confirmed version 2.0,
+871–1485 coverage, the collection counts above, audio and daily reading streaks.
+It also showed £1.99 monthly and £9.99 Premium; the existing project configuration
+identifies the £9.99 plan as annual. The updated site uses these verified facts.
+
+The animated redesign uses CSS and IntersectionObserver, with no new animation
+dependency. Content is visible in server HTML; enhancements do not hide it.
+Reduced-motion and narrow screens use normal feature blocks instead of a pinned
+preview. No analytics service exists in this project, and none was added. App Store
+links have `data-download-placement` labels ready for a future approved integration;
+they do not currently collect clicks or claim to measure installs.
+
+Release and asset provenance notes are in `docs/v2-redesign-review.md`.
+The pre-redesign production rollback point is commit `2184d85` and Vercel deployment
+`65QWM8ki8LciD3ZAa8gnerwoNjHY`. Use Vercel's deployment rollback or revert the release
+commit through Git; never force-reset the shared production branch.
 
 On 16 September 2026, the UK App Store listing showed the updated app and both
 £1.99 monthly and £9.99 annual Premium products. The matching website and

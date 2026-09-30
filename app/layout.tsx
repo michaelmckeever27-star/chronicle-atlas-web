@@ -22,7 +22,7 @@ const nunitoSans = localFont({
 
 const title = "Chronicle Atlas | England 871 for iPhone";
 const description =
-  "Step inside medieval England with England 871. Explore illustrated stories, people, places, a timeline and an interactive map from 871 to 1399.";
+  "A little history. Every day. Explore medieval England with England 871: illustrated stories, audio, people, an interactive map and timeline from 871 to 1485.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   keywords: [
     "history apps",
     "England 871",
-    "medieval England 871–1399",
-    "Alfred the Great to Richard II",
+    "medieval England 871–1485",
+    "Alfred the Great to Bosworth",
     "interactive history",
     "medieval history stories",
   ],
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 2400,
         height: 1260,
-        alt: "England 871 by Chronicle Atlas — Medieval England. Made fascinating. Explore 871–1399.",
+        alt: "England 871 by Chronicle Atlas — A little history. Every day. Explore medieval England, 871–1485.",
       },
     ],
   },

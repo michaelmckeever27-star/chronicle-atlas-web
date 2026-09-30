@@ -1,83 +1,165 @@
-import { MarketingScreenshot } from "./MarketingScreenshot";
-import type { ScreenshotName } from "@/lib/screenshots";
+"use client";
 
-const features: { image: ScreenshotName; label: string; title: string; text: string; note: string }[] = [
+import { useEffect, useRef, useState } from "react";
+import { MarketingScreenshot } from "./MarketingScreenshot";
+import { AppStoreButton } from "./AppStoreButton";
+import { screenshots, type ScreenshotName } from "@/lib/screenshots";
+
+const features: {
+  image: ScreenshotName;
+  label: string;
+  title: string;
+  text: string;
+  note: string;
+}[] = [
+  {
+    image: "home",
+    label: "01 / A moment, every day",
+    title: "Make history a daily habit.",
+    text: "A daily pick gives your curiosity somewhere to start. Build a reading streak, return to a story in progress and make a few minutes of history part of your day.",
+    note: "A little time. A new perspective.",
+  },
   {
     image: "reader",
-    label: "Short illustrated stories",
-    title: "A little history. A few minutes.",
-    text: "Read one card at a time. Each Chronicle turns a historical moment into a short, connected story, with room to pause and pick up where you left off.",
-    note: "Source notes and image details help you look beyond the story.",
-  },
-  {
-    image: "map",
-    label: "An interactive map",
-    title: "Put history on the map.",
-    text: "Find the places behind the stories. Select a town, royal centre or other historical location, then follow its connections to the people and events around it.",
-    note: "Explore places across medieval England, 871–1399.",
-  },
-  {
-    image: "timeline",
-    label: "Five centuries, connected",
-    title: "See how the story unfolds.",
-    text: "From Alfred the Great to Richard II, connect the turning points in order. Search dated events or choose an era to understand what came before—and what followed.",
-    note: "A timeline of England from 871 to 1399.",
+    label: "02 / Read or listen",
+    title: "Read a story. Or press play.",
+    text: "Follow an illustrated story one card at a time, or tap Listen for audio narration. Pause, take it in and come back when you’re ready.",
+    note: "Your pace. Your way into the story.",
   },
   {
     image: "people",
-    label: "Historical lives",
-    title: "Meet the people. Know their stories.",
-    text: "Explore rulers, nobles, commanders and influential women. Follow lives in context, with dates, roles and links into the wider history.",
-    note: "Historical depictions are not a claim of accurate likeness.",
+    label: "03 / Lives, connected",
+    title: "Meet the people behind the history.",
+    text: "Get to know 162 historical figures, from rulers and royal families to nobles and knights. Follow their connections to understand more than a name and a date.",
+    note: "The past was made by people.",
+  },
+  {
+    image: "map",
+    label: "04 / Places with a past",
+    title: "Put history on the map.",
+    text: "Find a royal centre, settlement or place behind an event. Choose a period, explore its connections and see how geography gives a story a different perspective.",
+    note: "Start with a place. See where it leads.",
+  },
+  {
+    image: "timeline",
+    label: "05 / The bigger picture",
+    title: "See how the story unfolds.",
+    text: "Connect 192 events across 871–1485. From Alfred’s Wessex to Bosworth, search the timeline or browse a period to discover what came before—and what came next.",
+    note: "Six centuries, one connected journey.",
   },
 ];
 
 export function AppTour() {
+  const root = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const section = root.current;
+    if (!section || !("IntersectionObserver" in window)) return;
+    const wide = window.matchMedia(
+      "(min-width: 1024px) and (min-height: 720px)",
+    );
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let observer: IntersectionObserver | undefined;
+    const configure = () => {
+      observer?.disconnect();
+      const enhance = wide.matches && !reduced.matches;
+      section.classList.toggle("tour-enhanced", enhance);
+      if (!enhance) return;
+      observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries.filter((entry) => entry.isIntersecting);
+          if (visible.length)
+            setActive(
+              Number(
+                visible[visible.length - 1].target.getAttribute("data-stage"),
+              ),
+            );
+        },
+        { rootMargin: "-35% 0px -35% 0px", threshold: 0 },
+      );
+      section
+        .querySelectorAll("[data-stage]")
+        .forEach((stage) => observer?.observe(stage));
+    };
+    configure();
+    wide.addEventListener("change", configure);
+    reduced.addEventListener("change", configure);
+    return () => {
+      observer?.disconnect();
+      wide.removeEventListener("change", configure);
+      reduced.removeEventListener("change", configure);
+      section.classList.remove("tour-enhanced");
+    };
+  }, []);
   return (
-    <>
-      <div className="feature-stories">
-        {features.map((feature, index) => (
-          <section className={`feature-story${index % 2 ? " feature-story-reverse" : ""}${index === 0 ? " feature-story-blue" : ""}`} key={feature.image}>
-            <div className="site-container feature-story-inner">
-              <div className="feature-story-copy">
-                <p className="eyebrow">{feature.label}</p>
-                <h2>{feature.title}</h2>
-                <p>{feature.text}</p>
-                <p className="feature-note">{feature.note}</p>
-              </div>
-              <MarketingScreenshot name={feature.image} />
-            </div>
-          </section>
-        ))}
-      </div>
-      <section className="section discovery-section">
-        <div className="site-container">
-          <div className="section-heading-row">
-            <div>
-              <p className="eyebrow">There is more than one way in</p>
-              <h2>Follow your curiosity.</h2>
-            </div>
-            <p>Choose a story, follow a Series or explore a subject. Everyday life, women and family belong here alongside the history of power.</p>
-          </div>
-          <div className="discovery-grid">
-            <article>
-              <div className="discovery-copy">
-                <h3>Find your next story.</h3>
-                <p>Browse 80 stories, from early kingdoms onwards. Search the library or follow connected reading paths in Series.</p>
-              </div>
-              <MarketingScreenshot name="library" />
-            </article>
-            <article>
-              <div className="discovery-copy">
-                <h3>Choose your way into the past.</h3>
-                <p>Explore brings stories, people, the timeline and map together. Start with a subject that interests you.</p>
-              </div>
-              <MarketingScreenshot name="explore" />
-            </article>
-          </div>
-          <p className="section-footnote">Screens shown from England 871. Some stories require Premium.</p>
+    <section className="app-tour section" id="tour">
+      <div className="site-container">
+        <div className="tour-heading" data-reveal>
+          <p className="eyebrow">Your own way into the past</p>
+          <h2>
+            History isn’t just a date.
+            <br />
+            <span>It’s a story.</span>
+          </h2>
+          <p>Meet the lives, explore the places and join the dots.</p>
         </div>
-      </section>
-    </>
+        <div className="tour-layout" ref={root}>
+          <div className="tour-stages">
+            {features.map((feature, index) => (
+              <article
+                className="tour-stage"
+                data-stage={index}
+                key={feature.image}
+                id={`feature-${feature.image}`}
+              >
+                <div className="tour-stage-copy" data-reveal>
+                  <p className="eyebrow">{feature.label}</p>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.text}</p>
+                  <p className="tour-note">
+                    <span aria-hidden="true">✦</span> {feature.note}
+                  </p>
+                  {index === 1 && (
+                    <AppStoreButton
+                      label="Find it on the App Store"
+                      placement="feature-section"
+                    />
+                  )}
+                </div>
+                <div className="tour-mobile-preview">
+                  <MarketingScreenshot name={feature.image} />
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="tour-sticky-preview">
+            <div className="tour-screen-stack">
+              {features.map((feature, index) => (
+                <div
+                  className={`tour-screen${active === index ? " is-active" : ""}`}
+                  aria-hidden={active !== index}
+                  key={feature.image}
+                >
+                  <MarketingScreenshot name={feature.image} caption={false} />
+                </div>
+              ))}
+            </div>
+            <p className="tour-preview-label">
+              <a
+                href={screenshots[features[active].image].src}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View full-size ${features[active].image} screenshot (opens in a new tab)`}
+              >
+                View full-size app screenshot <span aria-hidden="true">↗</span>
+              </a>
+            </p>
+          </div>
+        </div>
+        <p className="section-footnote">
+          Screens from version 2.0. Some stories require Premium.
+        </p>
+      </div>
+    </section>
   );
 }

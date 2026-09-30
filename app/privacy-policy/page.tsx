@@ -14,14 +14,14 @@ export default function PrivacyPolicyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       intro="How Chronicle Atlas Ltd handles information when you use England 871, visit this website or contact us."
-      lastUpdated="13 September 2026"
+      lastUpdated="30 September 2026"
     >
       <section>
         <h2>1. Who we are</h2>
         <p>
           Chronicle Atlas Ltd (“Chronicle Atlas”, “we”, “us” or “our”) develops
           educational history experiences, including England 871, an iOS app
-          covering medieval England from 871 to 1399. Chronicle Atlas Ltd is the
+          covering medieval England from 871 to 1485. Chronicle Atlas Ltd is the
           data controller for personal information that we receive directly,
           such as a message sent to us for support.
         </p>
